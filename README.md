@@ -10,4 +10,5 @@ Como por parte de los empleados/gerente:
   - Administrar los empleados
   - Gestionar los usuarios que entran a la aplicación
   - Gestionar el stock de la tienda
+
 Aplicando los conocimientos adquiridos en la empresa en la que estoy haciendo las prácticas utilizando el IDE Visual Studio con Formularios de Windows en C#.
