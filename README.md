@@ -4,11 +4,11 @@ Proyecto final de grado superior de Desarrollo de Aplicaciones Multiplataforma (
 Tanto por parte del cliente:
   - Ver la cartelera
   - Reservar asientos
-  - Ver los productos de la tienda
+  - Dejar reseñas
 
 Como por parte de los empleados/gerente:
   - Administrar los empleados
   - Gestionar los usuarios que entran a la aplicación
-  - Gestionar el stock de la tienda
+  - Gestionar las sesiones y los horarios
 
-Aplicando los conocimientos adquiridos en la empresa en la que estoy haciendo las prácticas utilizando el IDE Visual Studio con Formularios de Windows en C#.
+Aplicando los conocimientos adquiridos en la empresa en la que se están haciendo las prácticas utilizando el IDE Visual Studio con Formularios de Windows en C#.
