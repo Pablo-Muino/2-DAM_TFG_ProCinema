@@ -61,12 +61,14 @@
             // 
             // btnAcceder
             // 
-            this.btnAcceder.Location = new System.Drawing.Point(339, 176);
+            this.btnAcceder.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAcceder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcceder.Location = new System.Drawing.Point(316, 169);
             this.btnAcceder.Name = "btnAcceder";
-            this.btnAcceder.Size = new System.Drawing.Size(75, 31);
+            this.btnAcceder.Size = new System.Drawing.Size(98, 38);
             this.btnAcceder.TabIndex = 2;
             this.btnAcceder.Text = "Acceder";
-            this.btnAcceder.UseVisualStyleBackColor = true;
+            this.btnAcceder.UseVisualStyleBackColor = false;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
             // lblUsuario
@@ -105,26 +107,30 @@
             // lblRegistrarse
             // 
             this.lblRegistrarse.AutoSize = true;
-            this.lblRegistrarse.Location = new System.Drawing.Point(32, 182);
+            this.lblRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistrarse.Location = new System.Drawing.Point(12, 181);
             this.lblRegistrarse.Name = "lblRegistrarse";
-            this.lblRegistrarse.Size = new System.Drawing.Size(114, 16);
+            this.lblRegistrarse.Size = new System.Drawing.Size(131, 16);
             this.lblRegistrarse.TabIndex = 6;
             this.lblRegistrarse.Text = "¿No tiene cuenta?";
             // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(161, 175);
+            this.btnRegistrarse.BackColor = System.Drawing.Color.Firebrick;
+            this.btnRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarse.Location = new System.Drawing.Point(168, 169);
             this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(94, 31);
+            this.btnRegistrarse.Size = new System.Drawing.Size(120, 38);
             this.btnRegistrarse.TabIndex = 7;
             this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrarse.UseVisualStyleBackColor = false;
             this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // FLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(479, 237);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.lblRegistrarse);
@@ -133,7 +139,9 @@
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "FLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.dsCine1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsUsuarios)).EndInit();

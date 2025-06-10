@@ -282,12 +282,15 @@
             this.tabPagAsientos = new System.Windows.Forms.TabPage();
             this.dgvAsientos = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSalaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idSalaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numFilaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numColumnaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inhabilitadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbAsientos = new System.Windows.Forms.GroupBox();
             this.btnCancelarAsientos = new System.Windows.Forms.Button();
             this.panCamposAsientos = new System.Windows.Forms.Panel();
+            this.lblInhabilitado = new System.Windows.Forms.Label();
+            this.txtInhabilitado = new System.Windows.Forms.TextBox();
             this.lblSalaEmpleados = new System.Windows.Forms.Label();
             this.lblNumFila = new System.Windows.Forms.Label();
             this.cmbSalaAsientos = new System.Windows.Forms.ComboBox();
@@ -344,6 +347,9 @@
             this.btnEliminarCupones = new System.Windows.Forms.Button();
             this.btnEditarCupones = new System.Windows.Forms.Button();
             this.btnAgregarCupones = new System.Windows.Forms.Button();
+            this.panLogo = new System.Windows.Forms.Panel();
+            this.lblEncabezado1 = new System.Windows.Forms.Label();
+            this.lblEncabezado2 = new System.Windows.Forms.Label();
             this.tabPagUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsUsuarios)).BeginInit();
@@ -425,15 +431,19 @@
             // 
             // lblUsuarioLog
             // 
+            this.lblUsuarioLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarioLog.AutoSize = true;
-            this.lblUsuarioLog.Location = new System.Drawing.Point(12, 669);
+            this.lblUsuarioLog.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioLog.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioLog.Location = new System.Drawing.Point(872, 79);
             this.lblUsuarioLog.Name = "lblUsuarioLog";
-            this.lblUsuarioLog.Size = new System.Drawing.Size(119, 16);
+            this.lblUsuarioLog.Size = new System.Drawing.Size(162, 24);
             this.lblUsuarioLog.TabIndex = 1;
             this.lblUsuarioLog.Text = "Usuario loggeado:";
             // 
             // tabPagUsuarios
             // 
+            this.tabPagUsuarios.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagUsuarios.Controls.Add(this.dgvUsuarios);
             this.tabPagUsuarios.Controls.Add(this.gbUsuarios);
@@ -443,12 +453,14 @@
             this.tabPagUsuarios.Size = new System.Drawing.Size(1147, 511);
             this.tabPagUsuarios.TabIndex = 13;
             this.tabPagUsuarios.Text = "Usuarios";
-            this.tabPagUsuarios.UseVisualStyleBackColor = true;
             // 
             // dgvUsuarios
             // 
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsuarios.AutoGenerateColumns = false;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -524,12 +536,15 @@
             // 
             // gbUsuarios
             // 
+            this.gbUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbUsuarios.Controls.Add(this.btnCancelarUsuarios);
             this.gbUsuarios.Controls.Add(this.btnAceptarUsuarios);
             this.gbUsuarios.Controls.Add(this.btnEliminarUsuarios);
             this.gbUsuarios.Controls.Add(this.btnEditarUsuarios);
             this.gbUsuarios.Controls.Add(this.btnAgregarUsuarios);
             this.gbUsuarios.Controls.Add(this.panCamposUsuarios);
+            this.gbUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbUsuarios.Location = new System.Drawing.Point(783, 21);
             this.gbUsuarios.Name = "gbUsuarios";
             this.gbUsuarios.Size = new System.Drawing.Size(341, 465);
@@ -539,8 +554,9 @@
             // 
             // btnCancelarUsuarios
             // 
+            this.btnCancelarUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarUsuarios.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarUsuarios.Location = new System.Drawing.Point(294, 408);
+            this.btnCancelarUsuarios.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarUsuarios.Name = "btnCancelarUsuarios";
             this.btnCancelarUsuarios.Size = new System.Drawing.Size(30, 32);
             this.btnCancelarUsuarios.TabIndex = 72;
@@ -549,8 +565,9 @@
             // 
             // btnAceptarUsuarios
             // 
+            this.btnAceptarUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarUsuarios.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarUsuarios.Location = new System.Drawing.Point(255, 408);
+            this.btnAceptarUsuarios.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarUsuarios.Name = "btnAceptarUsuarios";
             this.btnAceptarUsuarios.Size = new System.Drawing.Size(30, 32);
             this.btnAceptarUsuarios.TabIndex = 71;
@@ -559,36 +576,50 @@
             // 
             // btnEliminarUsuarios
             // 
-            this.btnEliminarUsuarios.Location = new System.Drawing.Point(174, 408);
+            this.btnEliminarUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarUsuarios.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarUsuarios.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarUsuarios.Name = "btnEliminarUsuarios";
-            this.btnEliminarUsuarios.Size = new System.Drawing.Size(73, 33);
+            this.btnEliminarUsuarios.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarUsuarios.TabIndex = 70;
             this.btnEliminarUsuarios.Text = "Eliminar";
-            this.btnEliminarUsuarios.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuarios.UseVisualStyleBackColor = false;
             this.btnEliminarUsuarios.Click += new System.EventHandler(this.btnEliminarUsuarios_Click);
             // 
             // btnEditarUsuarios
             // 
-            this.btnEditarUsuarios.Location = new System.Drawing.Point(93, 408);
+            this.btnEditarUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarUsuarios.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnEditarUsuarios.Location = new System.Drawing.Point(97, 408);
             this.btnEditarUsuarios.Name = "btnEditarUsuarios";
-            this.btnEditarUsuarios.Size = new System.Drawing.Size(73, 33);
+            this.btnEditarUsuarios.Size = new System.Drawing.Size(75, 41);
             this.btnEditarUsuarios.TabIndex = 69;
             this.btnEditarUsuarios.Text = "Editar";
-            this.btnEditarUsuarios.UseVisualStyleBackColor = true;
+            this.btnEditarUsuarios.UseVisualStyleBackColor = false;
             this.btnEditarUsuarios.Click += new System.EventHandler(this.btnEditarUsuarios_Click);
             // 
             // btnAgregarUsuarios
             // 
-            this.btnAgregarUsuarios.Location = new System.Drawing.Point(12, 408);
+            this.btnAgregarUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarUsuarios.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarUsuarios.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarUsuarios.Name = "btnAgregarUsuarios";
-            this.btnAgregarUsuarios.Size = new System.Drawing.Size(73, 33);
+            this.btnAgregarUsuarios.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarUsuarios.TabIndex = 68;
             this.btnAgregarUsuarios.Text = "Agregar";
-            this.btnAgregarUsuarios.UseVisualStyleBackColor = true;
+            this.btnAgregarUsuarios.UseVisualStyleBackColor = false;
             this.btnAgregarUsuarios.Click += new System.EventHandler(this.btnAgregarUsuarios_Click);
             // 
             // panCamposUsuarios
             // 
+            this.panCamposUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposUsuarios.Controls.Add(this.txtPuntos);
             this.panCamposUsuarios.Controls.Add(this.lblPuntos);
             this.panCamposUsuarios.Controls.Add(this.txtContraseña);
@@ -598,6 +629,7 @@
             this.panCamposUsuarios.Controls.Add(this.txtCorreoUsuario);
             this.panCamposUsuarios.Controls.Add(this.lblContraseña);
             this.panCamposUsuarios.Enabled = false;
+            this.panCamposUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposUsuarios.Location = new System.Drawing.Point(6, 21);
             this.panCamposUsuarios.Name = "panCamposUsuarios";
             this.panCamposUsuarios.Size = new System.Drawing.Size(319, 212);
@@ -605,6 +637,8 @@
             // 
             // txtPuntos
             // 
+            this.txtPuntos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPuntos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsUsuarios, "Puntos", true));
             this.txtPuntos.Location = new System.Drawing.Point(6, 177);
             this.txtPuntos.Name = "txtPuntos";
@@ -613,6 +647,8 @@
             // 
             // lblPuntos
             // 
+            this.lblPuntos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPuntos.AutoSize = true;
             this.lblPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuntos.Location = new System.Drawing.Point(3, 158);
@@ -623,6 +659,8 @@
             // 
             // txtContraseña
             // 
+            this.txtContraseña.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContraseña.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsUsuarios, "Contraseña", true));
             this.txtContraseña.Location = new System.Drawing.Point(6, 125);
             this.txtContraseña.Name = "txtContraseña";
@@ -631,6 +669,8 @@
             // 
             // lblNombreUsuario
             // 
+            this.lblNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreUsuario.AutoSize = true;
             this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuario.Location = new System.Drawing.Point(3, 5);
@@ -641,6 +681,8 @@
             // 
             // txtNombreUsuario
             // 
+            this.txtNombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsUsuarios, "Nombre", true));
             this.txtNombreUsuario.Location = new System.Drawing.Point(6, 24);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
@@ -649,6 +691,8 @@
             // 
             // lblCorreoUsuario
             // 
+            this.lblCorreoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCorreoUsuario.AutoSize = true;
             this.lblCorreoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreoUsuario.Location = new System.Drawing.Point(3, 55);
@@ -659,6 +703,8 @@
             // 
             // txtCorreoUsuario
             // 
+            this.txtCorreoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreoUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsUsuarios, "Correo", true));
             this.txtCorreoUsuario.Location = new System.Drawing.Point(6, 74);
             this.txtCorreoUsuario.Name = "txtCorreoUsuario";
@@ -667,6 +713,8 @@
             // 
             // lblContraseña
             // 
+            this.lblContraseña.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContraseña.Location = new System.Drawing.Point(3, 106);
@@ -677,6 +725,7 @@
             // 
             // tabPagSalas
             // 
+            this.tabPagSalas.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagSalas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagSalas.Controls.Add(this.dgvSalas);
             this.tabPagSalas.Controls.Add(this.gbSalas);
@@ -686,12 +735,14 @@
             this.tabPagSalas.Size = new System.Drawing.Size(1147, 511);
             this.tabPagSalas.TabIndex = 12;
             this.tabPagSalas.Text = "Salas";
-            this.tabPagSalas.UseVisualStyleBackColor = true;
             // 
             // dgvSalas
             // 
             this.dgvSalas.AllowUserToAddRows = false;
             this.dgvSalas.AllowUserToDeleteRows = false;
+            this.dgvSalas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSalas.AutoGenerateColumns = false;
             this.dgvSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -742,12 +793,15 @@
             // 
             // gbSalas
             // 
+            this.gbSalas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbSalas.Controls.Add(this.panCamposSalas);
             this.gbSalas.Controls.Add(this.btnCancelarSalas);
             this.gbSalas.Controls.Add(this.btnAceptarSalas);
             this.gbSalas.Controls.Add(this.btnEliminarSalas);
             this.gbSalas.Controls.Add(this.btnEditarSalas);
             this.gbSalas.Controls.Add(this.btnAgregarSalas);
+            this.gbSalas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSalas.Location = new System.Drawing.Point(783, 21);
             this.gbSalas.Name = "gbSalas";
             this.gbSalas.Size = new System.Drawing.Size(341, 465);
@@ -757,11 +811,14 @@
             // 
             // panCamposSalas
             // 
+            this.panCamposSalas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposSalas.Controls.Add(this.txtCapacidad);
             this.panCamposSalas.Controls.Add(this.lblNombreSala);
             this.panCamposSalas.Controls.Add(this.txtNombreSala);
             this.panCamposSalas.Controls.Add(this.lblCapacidad);
             this.panCamposSalas.Enabled = false;
+            this.panCamposSalas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposSalas.Location = new System.Drawing.Point(10, 21);
             this.panCamposSalas.Name = "panCamposSalas";
             this.panCamposSalas.Size = new System.Drawing.Size(319, 111);
@@ -769,6 +826,8 @@
             // 
             // txtCapacidad
             // 
+            this.txtCapacidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCapacidad.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSalas, "Capacidad", true));
             this.txtCapacidad.Location = new System.Drawing.Point(6, 75);
             this.txtCapacidad.Name = "txtCapacidad";
@@ -777,6 +836,8 @@
             // 
             // lblNombreSala
             // 
+            this.lblNombreSala.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreSala.AutoSize = true;
             this.lblNombreSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreSala.Location = new System.Drawing.Point(3, 6);
@@ -787,6 +848,8 @@
             // 
             // txtNombreSala
             // 
+            this.txtNombreSala.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreSala.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSalas, "Nombre", true));
             this.txtNombreSala.Location = new System.Drawing.Point(6, 25);
             this.txtNombreSala.Name = "txtNombreSala";
@@ -795,6 +858,8 @@
             // 
             // lblCapacidad
             // 
+            this.lblCapacidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCapacidad.AutoSize = true;
             this.lblCapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCapacidad.Location = new System.Drawing.Point(3, 56);
@@ -805,8 +870,9 @@
             // 
             // btnCancelarSalas
             // 
+            this.btnCancelarSalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarSalas.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarSalas.Location = new System.Drawing.Point(294, 408);
+            this.btnCancelarSalas.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarSalas.Name = "btnCancelarSalas";
             this.btnCancelarSalas.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarSalas.TabIndex = 67;
@@ -815,8 +881,9 @@
             // 
             // btnAceptarSalas
             // 
+            this.btnAceptarSalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarSalas.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarSalas.Location = new System.Drawing.Point(255, 408);
+            this.btnAceptarSalas.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarSalas.Name = "btnAceptarSalas";
             this.btnAceptarSalas.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarSalas.TabIndex = 66;
@@ -825,36 +892,49 @@
             // 
             // btnEliminarSalas
             // 
-            this.btnEliminarSalas.Location = new System.Drawing.Point(174, 408);
+            this.btnEliminarSalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarSalas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarSalas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarSalas.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarSalas.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarSalas.Name = "btnEliminarSalas";
-            this.btnEliminarSalas.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarSalas.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarSalas.TabIndex = 65;
             this.btnEliminarSalas.Text = "Eliminar";
-            this.btnEliminarSalas.UseVisualStyleBackColor = true;
+            this.btnEliminarSalas.UseVisualStyleBackColor = false;
             this.btnEliminarSalas.Click += new System.EventHandler(this.btnEliminarSalas_Click);
             // 
             // btnEditarSalas
             // 
-            this.btnEditarSalas.Location = new System.Drawing.Point(93, 408);
+            this.btnEditarSalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarSalas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarSalas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarSalas.ForeColor = System.Drawing.Color.White;
+            this.btnEditarSalas.Location = new System.Drawing.Point(97, 408);
             this.btnEditarSalas.Name = "btnEditarSalas";
-            this.btnEditarSalas.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarSalas.Size = new System.Drawing.Size(75, 41);
             this.btnEditarSalas.TabIndex = 64;
             this.btnEditarSalas.Text = "Editar";
-            this.btnEditarSalas.UseVisualStyleBackColor = true;
+            this.btnEditarSalas.UseVisualStyleBackColor = false;
             this.btnEditarSalas.Click += new System.EventHandler(this.btnEditarSalas_Click);
             // 
             // btnAgregarSalas
             // 
-            this.btnAgregarSalas.Location = new System.Drawing.Point(12, 408);
+            this.btnAgregarSalas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarSalas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarSalas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarSalas.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarSalas.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarSalas.Name = "btnAgregarSalas";
-            this.btnAgregarSalas.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarSalas.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarSalas.TabIndex = 63;
             this.btnAgregarSalas.Text = "Agregar";
-            this.btnAgregarSalas.UseVisualStyleBackColor = true;
+            this.btnAgregarSalas.UseVisualStyleBackColor = false;
             this.btnAgregarSalas.Click += new System.EventHandler(this.btnAgregarSalas_Click);
             // 
             // tabPagReservas
             // 
+            this.tabPagReservas.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagReservas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagReservas.Controls.Add(this.dgvReservas);
             this.tabPagReservas.Controls.Add(this.gbReservas);
@@ -864,12 +944,14 @@
             this.tabPagReservas.Size = new System.Drawing.Size(1147, 511);
             this.tabPagReservas.TabIndex = 11;
             this.tabPagReservas.Text = "Reservas";
-            this.tabPagReservas.UseVisualStyleBackColor = true;
             // 
             // dgvReservas
             // 
             this.dgvReservas.AllowUserToAddRows = false;
             this.dgvReservas.AllowUserToDeleteRows = false;
+            this.dgvReservas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReservas.AutoGenerateColumns = false;
             this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1005,12 +1087,15 @@
             // 
             // gbReservas
             // 
+            this.gbReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbReservas.Controls.Add(this.btnCancelarReservas);
             this.gbReservas.Controls.Add(this.btnAceptarReservas);
             this.gbReservas.Controls.Add(this.btnEliminarReservas);
             this.gbReservas.Controls.Add(this.btnEditarReservas);
             this.gbReservas.Controls.Add(this.btnAgregarReservas);
             this.gbReservas.Controls.Add(this.panCamposReservas);
+            this.gbReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbReservas.Location = new System.Drawing.Point(783, 21);
             this.gbReservas.Name = "gbReservas";
             this.gbReservas.Size = new System.Drawing.Size(341, 465);
@@ -1020,8 +1105,9 @@
             // 
             // btnCancelarReservas
             // 
+            this.btnCancelarReservas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarReservas.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarReservas.Location = new System.Drawing.Point(300, 409);
+            this.btnCancelarReservas.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarReservas.Name = "btnCancelarReservas";
             this.btnCancelarReservas.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarReservas.TabIndex = 62;
@@ -1030,8 +1116,9 @@
             // 
             // btnAceptarReservas
             // 
+            this.btnAceptarReservas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarReservas.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarReservas.Location = new System.Drawing.Point(261, 409);
+            this.btnAceptarReservas.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarReservas.Name = "btnAceptarReservas";
             this.btnAceptarReservas.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarReservas.TabIndex = 61;
@@ -1040,36 +1127,50 @@
             // 
             // btnEliminarReservas
             // 
-            this.btnEliminarReservas.Location = new System.Drawing.Point(180, 409);
+            this.btnEliminarReservas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarReservas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarReservas.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarReservas.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarReservas.Name = "btnEliminarReservas";
-            this.btnEliminarReservas.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarReservas.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarReservas.TabIndex = 60;
             this.btnEliminarReservas.Text = "Eliminar";
-            this.btnEliminarReservas.UseVisualStyleBackColor = true;
+            this.btnEliminarReservas.UseVisualStyleBackColor = false;
             this.btnEliminarReservas.Click += new System.EventHandler(this.btnEliminarReservas_Click);
             // 
             // btnEditarReservas
             // 
-            this.btnEditarReservas.Location = new System.Drawing.Point(99, 409);
+            this.btnEditarReservas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarReservas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarReservas.ForeColor = System.Drawing.Color.White;
+            this.btnEditarReservas.Location = new System.Drawing.Point(97, 408);
             this.btnEditarReservas.Name = "btnEditarReservas";
-            this.btnEditarReservas.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarReservas.Size = new System.Drawing.Size(75, 41);
             this.btnEditarReservas.TabIndex = 59;
             this.btnEditarReservas.Text = "Editar";
-            this.btnEditarReservas.UseVisualStyleBackColor = true;
+            this.btnEditarReservas.UseVisualStyleBackColor = false;
             this.btnEditarReservas.Click += new System.EventHandler(this.btnEditarReservas_Click);
             // 
             // btnAgregarReservas
             // 
-            this.btnAgregarReservas.Location = new System.Drawing.Point(18, 409);
+            this.btnAgregarReservas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarReservas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarReservas.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarReservas.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarReservas.Name = "btnAgregarReservas";
-            this.btnAgregarReservas.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarReservas.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarReservas.TabIndex = 58;
             this.btnAgregarReservas.Text = "Agregar";
-            this.btnAgregarReservas.UseVisualStyleBackColor = true;
+            this.btnAgregarReservas.UseVisualStyleBackColor = false;
             this.btnAgregarReservas.Click += new System.EventHandler(this.btnAgregarReservas_Click);
             // 
             // panCamposReservas
             // 
+            this.panCamposReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposReservas.Controls.Add(this.cmbCuponReserva);
             this.panCamposReservas.Controls.Add(this.lblCuponReserva);
             this.panCamposReservas.Controls.Add(this.txtFechaReservas);
@@ -1083,6 +1184,7 @@
             this.panCamposReservas.Controls.Add(this.lblAsientosReservas);
             this.panCamposReservas.Controls.Add(this.cmbUsuariosReservas);
             this.panCamposReservas.Enabled = false;
+            this.panCamposReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposReservas.Location = new System.Drawing.Point(6, 21);
             this.panCamposReservas.Name = "panCamposReservas";
             this.panCamposReservas.Size = new System.Drawing.Size(329, 330);
@@ -1090,6 +1192,8 @@
             // 
             // cmbCuponReserva
             // 
+            this.cmbCuponReserva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbCuponReserva.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReservas, "IdEstadoPago", true));
             this.cmbCuponReserva.FormattingEnabled = true;
             this.cmbCuponReserva.Location = new System.Drawing.Point(7, 294);
@@ -1099,6 +1203,8 @@
             // 
             // lblCuponReserva
             // 
+            this.lblCuponReserva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCuponReserva.AutoSize = true;
             this.lblCuponReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCuponReserva.Location = new System.Drawing.Point(4, 275);
@@ -1109,6 +1215,8 @@
             // 
             // txtFechaReservas
             // 
+            this.txtFechaReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFechaReservas.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReservas, "FechaReserva", true));
             this.txtFechaReservas.Location = new System.Drawing.Point(7, 185);
             this.txtFechaReservas.Name = "txtFechaReservas";
@@ -1117,6 +1225,8 @@
             // 
             // cmbEstadosPagoReservas
             // 
+            this.cmbEstadosPagoReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstadosPagoReservas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReservas, "IdEstadoPago", true));
             this.cmbEstadosPagoReservas.FormattingEnabled = true;
             this.cmbEstadosPagoReservas.Location = new System.Drawing.Point(7, 239);
@@ -1126,6 +1236,8 @@
             // 
             // lblFechaReservas
             // 
+            this.lblFechaReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaReservas.AutoSize = true;
             this.lblFechaReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaReservas.Location = new System.Drawing.Point(4, 165);
@@ -1136,6 +1248,8 @@
             // 
             // lblEstadoReserva
             // 
+            this.lblEstadoReserva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstadoReserva.AutoSize = true;
             this.lblEstadoReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoReserva.Location = new System.Drawing.Point(4, 220);
@@ -1146,6 +1260,8 @@
             // 
             // cmbSesionesReservas
             // 
+            this.cmbSesionesReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSesionesReservas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReservas, "IdSesion", true));
             this.cmbSesionesReservas.FormattingEnabled = true;
             this.cmbSesionesReservas.Location = new System.Drawing.Point(7, 76);
@@ -1155,6 +1271,8 @@
             // 
             // lblNombreUsuarioReserva
             // 
+            this.lblNombreUsuarioReserva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreUsuarioReserva.AutoSize = true;
             this.lblNombreUsuarioReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuarioReserva.Location = new System.Drawing.Point(4, 3);
@@ -1165,6 +1283,8 @@
             // 
             // cmbAsientosReservas
             // 
+            this.cmbAsientosReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbAsientosReservas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReservas, "IdAsiento", true));
             this.cmbAsientosReservas.FormattingEnabled = true;
             this.cmbAsientosReservas.Location = new System.Drawing.Point(7, 130);
@@ -1174,6 +1294,8 @@
             // 
             // lblHorariosReserva
             // 
+            this.lblHorariosReserva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHorariosReserva.AutoSize = true;
             this.lblHorariosReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHorariosReserva.Location = new System.Drawing.Point(4, 57);
@@ -1184,6 +1306,8 @@
             // 
             // lblAsientosReservas
             // 
+            this.lblAsientosReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAsientosReservas.AutoSize = true;
             this.lblAsientosReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsientosReservas.Location = new System.Drawing.Point(4, 111);
@@ -1194,6 +1318,8 @@
             // 
             // cmbUsuariosReservas
             // 
+            this.cmbUsuariosReservas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbUsuariosReservas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReservas, "IdUsuario", true));
             this.cmbUsuariosReservas.FormattingEnabled = true;
             this.cmbUsuariosReservas.Location = new System.Drawing.Point(7, 22);
@@ -1203,6 +1329,7 @@
             // 
             // tabPagReseñas
             // 
+            this.tabPagReseñas.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagReseñas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagReseñas.Controls.Add(this.dgvReseñas);
             this.tabPagReseñas.Controls.Add(this.gbReseñas);
@@ -1212,12 +1339,14 @@
             this.tabPagReseñas.Size = new System.Drawing.Size(1147, 511);
             this.tabPagReseñas.TabIndex = 10;
             this.tabPagReseñas.Text = "Reseñas";
-            this.tabPagReseñas.UseVisualStyleBackColor = true;
             // 
             // dgvReseñas
             // 
             this.dgvReseñas.AllowUserToAddRows = false;
             this.dgvReseñas.AllowUserToDeleteRows = false;
+            this.dgvReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReseñas.AutoGenerateColumns = false;
             this.dgvReseñas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReseñas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1313,12 +1442,15 @@
             // 
             // gbReseñas
             // 
+            this.gbReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbReseñas.Controls.Add(this.btnCancelasReseñas);
             this.gbReseñas.Controls.Add(this.btnAceptarReseñas);
             this.gbReseñas.Controls.Add(this.btnEliminarReseñas);
             this.gbReseñas.Controls.Add(this.btnEditarReseñas);
             this.gbReseñas.Controls.Add(this.btnAgregarReseñas);
             this.gbReseñas.Controls.Add(this.panCamposReseñas);
+            this.gbReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbReseñas.Location = new System.Drawing.Point(783, 21);
             this.gbReseñas.Name = "gbReseñas";
             this.gbReseñas.Size = new System.Drawing.Size(341, 465);
@@ -1328,8 +1460,9 @@
             // 
             // btnCancelasReseñas
             // 
+            this.btnCancelasReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelasReseñas.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelasReseñas.Location = new System.Drawing.Point(296, 408);
+            this.btnCancelasReseñas.Location = new System.Drawing.Point(297, 411);
             this.btnCancelasReseñas.Name = "btnCancelasReseñas";
             this.btnCancelasReseñas.Size = new System.Drawing.Size(32, 32);
             this.btnCancelasReseñas.TabIndex = 57;
@@ -1338,8 +1471,9 @@
             // 
             // btnAceptarReseñas
             // 
+            this.btnAceptarReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarReseñas.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarReseñas.Location = new System.Drawing.Point(257, 408);
+            this.btnAceptarReseñas.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarReseñas.Name = "btnAceptarReseñas";
             this.btnAceptarReseñas.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarReseñas.TabIndex = 56;
@@ -1348,36 +1482,50 @@
             // 
             // btnEliminarReseñas
             // 
-            this.btnEliminarReseñas.Location = new System.Drawing.Point(176, 408);
+            this.btnEliminarReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarReseñas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarReseñas.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarReseñas.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarReseñas.Name = "btnEliminarReseñas";
-            this.btnEliminarReseñas.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarReseñas.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarReseñas.TabIndex = 55;
             this.btnEliminarReseñas.Text = "Eliminar";
-            this.btnEliminarReseñas.UseVisualStyleBackColor = true;
+            this.btnEliminarReseñas.UseVisualStyleBackColor = false;
             this.btnEliminarReseñas.Click += new System.EventHandler(this.btnEliminarReseñas_Click);
             // 
             // btnEditarReseñas
             // 
-            this.btnEditarReseñas.Location = new System.Drawing.Point(95, 408);
+            this.btnEditarReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarReseñas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarReseñas.ForeColor = System.Drawing.Color.White;
+            this.btnEditarReseñas.Location = new System.Drawing.Point(97, 408);
             this.btnEditarReseñas.Name = "btnEditarReseñas";
-            this.btnEditarReseñas.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarReseñas.Size = new System.Drawing.Size(75, 41);
             this.btnEditarReseñas.TabIndex = 54;
             this.btnEditarReseñas.Text = "Editar";
-            this.btnEditarReseñas.UseVisualStyleBackColor = true;
+            this.btnEditarReseñas.UseVisualStyleBackColor = false;
             this.btnEditarReseñas.Click += new System.EventHandler(this.btnEditarReseñas_Click);
             // 
             // btnAgregarReseñas
             // 
-            this.btnAgregarReseñas.Location = new System.Drawing.Point(14, 408);
+            this.btnAgregarReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarReseñas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarReseñas.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarReseñas.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarReseñas.Name = "btnAgregarReseñas";
-            this.btnAgregarReseñas.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarReseñas.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarReseñas.TabIndex = 53;
             this.btnAgregarReseñas.Text = "Agregar";
-            this.btnAgregarReseñas.UseVisualStyleBackColor = true;
+            this.btnAgregarReseñas.UseVisualStyleBackColor = false;
             this.btnAgregarReseñas.Click += new System.EventHandler(this.btnAgregarReseñas_Click);
             // 
             // panCamposReseñas
             // 
+            this.panCamposReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposReseñas.Controls.Add(this.cmbUsuariosReseñas);
             this.panCamposReseñas.Controls.Add(this.cmbPeliculasReseñas);
             this.panCamposReseñas.Controls.Add(this.lblTituloPeliculaReseñas);
@@ -1389,6 +1537,7 @@
             this.panCamposReseñas.Controls.Add(this.lblCalificacion);
             this.panCamposReseñas.Controls.Add(this.lblNombreUsuarioReseñas);
             this.panCamposReseñas.Enabled = false;
+            this.panCamposReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposReseñas.Location = new System.Drawing.Point(12, 21);
             this.panCamposReseñas.Name = "panCamposReseñas";
             this.panCamposReseñas.Size = new System.Drawing.Size(323, 271);
@@ -1396,6 +1545,8 @@
             // 
             // cmbUsuariosReseñas
             // 
+            this.cmbUsuariosReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbUsuariosReseñas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReseñas, "IdUsuario", true));
             this.cmbUsuariosReseñas.FormattingEnabled = true;
             this.cmbUsuariosReseñas.Location = new System.Drawing.Point(4, 76);
@@ -1405,6 +1556,8 @@
             // 
             // cmbPeliculasReseñas
             // 
+            this.cmbPeliculasReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPeliculasReseñas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsReseñas, "IdPelicula", true));
             this.cmbPeliculasReseñas.FormattingEnabled = true;
             this.cmbPeliculasReseñas.Location = new System.Drawing.Point(4, 23);
@@ -1414,6 +1567,8 @@
             // 
             // lblTituloPeliculaReseñas
             // 
+            this.lblTituloPeliculaReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTituloPeliculaReseñas.AutoSize = true;
             this.lblTituloPeliculaReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloPeliculaReseñas.Location = new System.Drawing.Point(1, 4);
@@ -1424,6 +1579,8 @@
             // 
             // txtCalificacion
             // 
+            this.txtCalificacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCalificacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReseñas, "Calificacion", true));
             this.txtCalificacion.Location = new System.Drawing.Point(4, 128);
             this.txtCalificacion.Name = "txtCalificacion";
@@ -1432,6 +1589,8 @@
             // 
             // lblComentario
             // 
+            this.lblComentario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblComentario.AutoSize = true;
             this.lblComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComentario.Location = new System.Drawing.Point(1, 161);
@@ -1442,6 +1601,8 @@
             // 
             // txtComentario
             // 
+            this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtComentario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReseñas, "Comentario", true));
             this.txtComentario.Location = new System.Drawing.Point(4, 180);
             this.txtComentario.Name = "txtComentario";
@@ -1450,6 +1611,8 @@
             // 
             // lblFecha
             // 
+            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(1, 212);
@@ -1460,6 +1623,8 @@
             // 
             // txtFecha
             // 
+            this.txtFecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFecha.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReseñas, "Fecha", true));
             this.txtFecha.Location = new System.Drawing.Point(4, 231);
             this.txtFecha.Name = "txtFecha";
@@ -1468,6 +1633,8 @@
             // 
             // lblCalificacion
             // 
+            this.lblCalificacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCalificacion.AutoSize = true;
             this.lblCalificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCalificacion.Location = new System.Drawing.Point(1, 109);
@@ -1478,6 +1645,8 @@
             // 
             // lblNombreUsuarioReseñas
             // 
+            this.lblNombreUsuarioReseñas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreUsuarioReseñas.AutoSize = true;
             this.lblNombreUsuarioReseñas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuarioReseñas.Location = new System.Drawing.Point(1, 57);
@@ -1488,6 +1657,7 @@
             // 
             // tabPagPuestosTrabajo
             // 
+            this.tabPagPuestosTrabajo.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagPuestosTrabajo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagPuestosTrabajo.Controls.Add(this.dgvPuestosTrabajo);
             this.tabPagPuestosTrabajo.Controls.Add(this.gbPuestosTrabajo);
@@ -1497,12 +1667,14 @@
             this.tabPagPuestosTrabajo.Size = new System.Drawing.Size(1147, 511);
             this.tabPagPuestosTrabajo.TabIndex = 9;
             this.tabPagPuestosTrabajo.Text = "Puestos de trabajo";
-            this.tabPagPuestosTrabajo.UseVisualStyleBackColor = true;
             // 
             // dgvPuestosTrabajo
             // 
             this.dgvPuestosTrabajo.AllowUserToAddRows = false;
             this.dgvPuestosTrabajo.AllowUserToDeleteRows = false;
+            this.dgvPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPuestosTrabajo.AutoGenerateColumns = false;
             this.dgvPuestosTrabajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPuestosTrabajo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1543,12 +1715,15 @@
             // 
             // gbPuestosTrabajo
             // 
+            this.gbPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPuestosTrabajo.Controls.Add(this.btnCancelarPuestosTrabajo);
             this.gbPuestosTrabajo.Controls.Add(this.btnAceptarPuestosTrabajo);
             this.gbPuestosTrabajo.Controls.Add(this.btnEliminarPuestosTrabajo);
             this.gbPuestosTrabajo.Controls.Add(this.btnEditarPuestosTrabajo);
             this.gbPuestosTrabajo.Controls.Add(this.btnAgregarPuestosTrabajo);
             this.gbPuestosTrabajo.Controls.Add(this.panCamposPuestosTrabajo);
+            this.gbPuestosTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPuestosTrabajo.Location = new System.Drawing.Point(783, 21);
             this.gbPuestosTrabajo.Name = "gbPuestosTrabajo";
             this.gbPuestosTrabajo.Size = new System.Drawing.Size(341, 465);
@@ -1558,8 +1733,9 @@
             // 
             // btnCancelarPuestosTrabajo
             // 
+            this.btnCancelarPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarPuestosTrabajo.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarPuestosTrabajo.Location = new System.Drawing.Point(292, 409);
+            this.btnCancelarPuestosTrabajo.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarPuestosTrabajo.Name = "btnCancelarPuestosTrabajo";
             this.btnCancelarPuestosTrabajo.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarPuestosTrabajo.TabIndex = 52;
@@ -1568,8 +1744,9 @@
             // 
             // btnAceptarPuestosTrabajo
             // 
+            this.btnAceptarPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarPuestosTrabajo.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarPuestosTrabajo.Location = new System.Drawing.Point(253, 409);
+            this.btnAceptarPuestosTrabajo.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarPuestosTrabajo.Name = "btnAceptarPuestosTrabajo";
             this.btnAceptarPuestosTrabajo.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarPuestosTrabajo.TabIndex = 51;
@@ -1578,36 +1755,50 @@
             // 
             // btnEliminarPuestosTrabajo
             // 
-            this.btnEliminarPuestosTrabajo.Location = new System.Drawing.Point(172, 409);
+            this.btnEliminarPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarPuestosTrabajo.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarPuestosTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarPuestosTrabajo.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarPuestosTrabajo.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarPuestosTrabajo.Name = "btnEliminarPuestosTrabajo";
-            this.btnEliminarPuestosTrabajo.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarPuestosTrabajo.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarPuestosTrabajo.TabIndex = 50;
             this.btnEliminarPuestosTrabajo.Text = "Eliminar";
-            this.btnEliminarPuestosTrabajo.UseVisualStyleBackColor = true;
+            this.btnEliminarPuestosTrabajo.UseVisualStyleBackColor = false;
             this.btnEliminarPuestosTrabajo.Click += new System.EventHandler(this.btnEliminarPuestosTrabajo_Click);
             // 
             // btnEditarPuestosTrabajo
             // 
-            this.btnEditarPuestosTrabajo.Location = new System.Drawing.Point(91, 409);
+            this.btnEditarPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarPuestosTrabajo.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarPuestosTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPuestosTrabajo.ForeColor = System.Drawing.Color.White;
+            this.btnEditarPuestosTrabajo.Location = new System.Drawing.Point(97, 408);
             this.btnEditarPuestosTrabajo.Name = "btnEditarPuestosTrabajo";
-            this.btnEditarPuestosTrabajo.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarPuestosTrabajo.Size = new System.Drawing.Size(75, 41);
             this.btnEditarPuestosTrabajo.TabIndex = 49;
             this.btnEditarPuestosTrabajo.Text = "Editar";
-            this.btnEditarPuestosTrabajo.UseVisualStyleBackColor = true;
+            this.btnEditarPuestosTrabajo.UseVisualStyleBackColor = false;
             this.btnEditarPuestosTrabajo.Click += new System.EventHandler(this.btnEditarPuestosTrabajo_Click);
             // 
             // btnAgregarPuestosTrabajo
             // 
-            this.btnAgregarPuestosTrabajo.Location = new System.Drawing.Point(10, 409);
+            this.btnAgregarPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarPuestosTrabajo.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarPuestosTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPuestosTrabajo.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarPuestosTrabajo.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarPuestosTrabajo.Name = "btnAgregarPuestosTrabajo";
-            this.btnAgregarPuestosTrabajo.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarPuestosTrabajo.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarPuestosTrabajo.TabIndex = 48;
             this.btnAgregarPuestosTrabajo.Text = "Agregar";
-            this.btnAgregarPuestosTrabajo.UseVisualStyleBackColor = true;
+            this.btnAgregarPuestosTrabajo.UseVisualStyleBackColor = false;
             this.btnAgregarPuestosTrabajo.Click += new System.EventHandler(this.btnAgregarPuestosTrabajo_Click);
             // 
             // panCamposPuestosTrabajo
             // 
+            this.panCamposPuestosTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposPuestosTrabajo.Controls.Add(this.txtPuestoTrabajo);
             this.panCamposPuestosTrabajo.Controls.Add(this.lblPuestoTrabajo);
             this.panCamposPuestosTrabajo.Enabled = false;
@@ -1618,14 +1809,18 @@
             // 
             // txtPuestoTrabajo
             // 
+            this.txtPuestoTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPuestoTrabajo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPuestosTrabajo, "Puesto", true));
             this.txtPuestoTrabajo.Location = new System.Drawing.Point(3, 24);
             this.txtPuestoTrabajo.Name = "txtPuestoTrabajo";
-            this.txtPuestoTrabajo.Size = new System.Drawing.Size(313, 22);
+            this.txtPuestoTrabajo.Size = new System.Drawing.Size(313, 24);
             this.txtPuestoTrabajo.TabIndex = 1;
             // 
             // lblPuestoTrabajo
             // 
+            this.lblPuestoTrabajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPuestoTrabajo.AutoSize = true;
             this.lblPuestoTrabajo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuestoTrabajo.Location = new System.Drawing.Point(0, 5);
@@ -1636,6 +1831,7 @@
             // 
             // tabPagPeliculas
             // 
+            this.tabPagPeliculas.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagPeliculas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagPeliculas.Controls.Add(this.dgvPeliculas);
             this.tabPagPeliculas.Controls.Add(this.gbPeliculas);
@@ -1645,12 +1841,14 @@
             this.tabPagPeliculas.Size = new System.Drawing.Size(1147, 511);
             this.tabPagPeliculas.TabIndex = 8;
             this.tabPagPeliculas.Text = "Peliculas";
-            this.tabPagPeliculas.UseVisualStyleBackColor = true;
             // 
             // dgvPeliculas
             // 
             this.dgvPeliculas.AllowUserToAddRows = false;
             this.dgvPeliculas.AllowUserToDeleteRows = false;
+            this.dgvPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPeliculas.AutoGenerateColumns = false;
             this.dgvPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeliculas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1736,12 +1934,15 @@
             // 
             // gbPeliculas
             // 
+            this.gbPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPeliculas.Controls.Add(this.btnCancelarPeliculas);
             this.gbPeliculas.Controls.Add(this.btnAceptarPeliculas);
             this.gbPeliculas.Controls.Add(this.btnEliminarPeliculas);
             this.gbPeliculas.Controls.Add(this.btnEditarPeliculas);
             this.gbPeliculas.Controls.Add(this.btnAgregarPeliculas);
             this.gbPeliculas.Controls.Add(this.panCamposPeliculas);
+            this.gbPeliculas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPeliculas.Location = new System.Drawing.Point(783, 21);
             this.gbPeliculas.Name = "gbPeliculas";
             this.gbPeliculas.Size = new System.Drawing.Size(341, 465);
@@ -1751,8 +1952,9 @@
             // 
             // btnCancelarPeliculas
             // 
+            this.btnCancelarPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarPeliculas.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarPeliculas.Location = new System.Drawing.Point(300, 409);
+            this.btnCancelarPeliculas.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarPeliculas.Name = "btnCancelarPeliculas";
             this.btnCancelarPeliculas.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarPeliculas.TabIndex = 56;
@@ -1761,8 +1963,9 @@
             // 
             // btnAceptarPeliculas
             // 
+            this.btnAceptarPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarPeliculas.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarPeliculas.Location = new System.Drawing.Point(261, 409);
+            this.btnAceptarPeliculas.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarPeliculas.Name = "btnAceptarPeliculas";
             this.btnAceptarPeliculas.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarPeliculas.TabIndex = 55;
@@ -1771,36 +1974,50 @@
             // 
             // btnEliminarPeliculas
             // 
-            this.btnEliminarPeliculas.Location = new System.Drawing.Point(180, 409);
+            this.btnEliminarPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarPeliculas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarPeliculas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarPeliculas.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarPeliculas.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarPeliculas.Name = "btnEliminarPeliculas";
-            this.btnEliminarPeliculas.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarPeliculas.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarPeliculas.TabIndex = 54;
             this.btnEliminarPeliculas.Text = "Eliminar";
-            this.btnEliminarPeliculas.UseVisualStyleBackColor = true;
+            this.btnEliminarPeliculas.UseVisualStyleBackColor = false;
             this.btnEliminarPeliculas.Click += new System.EventHandler(this.btnEliminarPeliculas_Click);
             // 
             // btnEditarPeliculas
             // 
-            this.btnEditarPeliculas.Location = new System.Drawing.Point(99, 409);
+            this.btnEditarPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarPeliculas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarPeliculas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPeliculas.ForeColor = System.Drawing.Color.White;
+            this.btnEditarPeliculas.Location = new System.Drawing.Point(97, 408);
             this.btnEditarPeliculas.Name = "btnEditarPeliculas";
-            this.btnEditarPeliculas.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarPeliculas.Size = new System.Drawing.Size(75, 41);
             this.btnEditarPeliculas.TabIndex = 53;
             this.btnEditarPeliculas.Text = "Editar";
-            this.btnEditarPeliculas.UseVisualStyleBackColor = true;
+            this.btnEditarPeliculas.UseVisualStyleBackColor = false;
             this.btnEditarPeliculas.Click += new System.EventHandler(this.btnEditarPeliculas_Click);
             // 
             // btnAgregarPeliculas
             // 
-            this.btnAgregarPeliculas.Location = new System.Drawing.Point(18, 409);
+            this.btnAgregarPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarPeliculas.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarPeliculas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPeliculas.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarPeliculas.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarPeliculas.Name = "btnAgregarPeliculas";
-            this.btnAgregarPeliculas.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarPeliculas.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarPeliculas.TabIndex = 52;
             this.btnAgregarPeliculas.Text = "Agregar";
-            this.btnAgregarPeliculas.UseVisualStyleBackColor = true;
+            this.btnAgregarPeliculas.UseVisualStyleBackColor = false;
             this.btnAgregarPeliculas.Click += new System.EventHandler(this.btnAgregarPeliculas_Click);
             // 
             // panCamposPeliculas
             // 
+            this.panCamposPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposPeliculas.Controls.Add(this.txtTitulo);
             this.panCamposPeliculas.Controls.Add(this.txtPortada);
             this.panCamposPeliculas.Controls.Add(this.cmbGeneroPeliculas);
@@ -1814,6 +2031,7 @@
             this.panCamposPeliculas.Controls.Add(this.txtCalificacionPelicula);
             this.panCamposPeliculas.Controls.Add(this.lblCalificacionPelicula);
             this.panCamposPeliculas.Enabled = false;
+            this.panCamposPeliculas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposPeliculas.Location = new System.Drawing.Point(12, 21);
             this.panCamposPeliculas.Name = "panCamposPeliculas";
             this.panCamposPeliculas.Size = new System.Drawing.Size(323, 318);
@@ -1821,6 +2039,8 @@
             // 
             // txtTitulo
             // 
+            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitulo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPeliculas, "Titulo", true));
             this.txtTitulo.Location = new System.Drawing.Point(4, 24);
             this.txtTitulo.Name = "txtTitulo";
@@ -1829,6 +2049,8 @@
             // 
             // txtPortada
             // 
+            this.txtPortada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPortada.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPeliculas, "Portada", true));
             this.txtPortada.Location = new System.Drawing.Point(4, 281);
             this.txtPortada.Name = "txtPortada";
@@ -1837,6 +2059,8 @@
             // 
             // cmbGeneroPeliculas
             // 
+            this.cmbGeneroPeliculas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGeneroPeliculas.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsPeliculas, "IdGenero", true));
             this.cmbGeneroPeliculas.FormattingEnabled = true;
             this.cmbGeneroPeliculas.Location = new System.Drawing.Point(4, 74);
@@ -1846,6 +2070,8 @@
             // 
             // lblTitulo
             // 
+            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(1, 5);
@@ -1856,6 +2082,8 @@
             // 
             // lblGeneroPelicula
             // 
+            this.lblGeneroPelicula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGeneroPelicula.AutoSize = true;
             this.lblGeneroPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGeneroPelicula.Location = new System.Drawing.Point(1, 55);
@@ -1866,6 +2094,8 @@
             // 
             // lblSinopsis
             // 
+            this.lblSinopsis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSinopsis.AutoSize = true;
             this.lblSinopsis.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinopsis.Location = new System.Drawing.Point(1, 106);
@@ -1876,6 +2106,8 @@
             // 
             // txtSinposis
             // 
+            this.txtSinposis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSinposis.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPeliculas, "Sinopsis", true));
             this.txtSinposis.Location = new System.Drawing.Point(4, 125);
             this.txtSinposis.Name = "txtSinposis";
@@ -1884,6 +2116,8 @@
             // 
             // lblDuracion
             // 
+            this.lblDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDuracion.AutoSize = true;
             this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuracion.Location = new System.Drawing.Point(1, 157);
@@ -1894,6 +2128,8 @@
             // 
             // lblPortada
             // 
+            this.lblPortada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPortada.AutoSize = true;
             this.lblPortada.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPortada.Location = new System.Drawing.Point(1, 262);
@@ -1904,6 +2140,8 @@
             // 
             // txtDuracion
             // 
+            this.txtDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDuracion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPeliculas, "Duracion", true));
             this.txtDuracion.Location = new System.Drawing.Point(4, 176);
             this.txtDuracion.Name = "txtDuracion";
@@ -1912,6 +2150,8 @@
             // 
             // txtCalificacionPelicula
             // 
+            this.txtCalificacionPelicula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCalificacionPelicula.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPeliculas, "Calificacion", true));
             this.txtCalificacionPelicula.Location = new System.Drawing.Point(4, 228);
             this.txtCalificacionPelicula.Name = "txtCalificacionPelicula";
@@ -1920,6 +2160,8 @@
             // 
             // lblCalificacionPelicula
             // 
+            this.lblCalificacionPelicula.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCalificacionPelicula.AutoSize = true;
             this.lblCalificacionPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCalificacionPelicula.Location = new System.Drawing.Point(1, 209);
@@ -1935,6 +2177,7 @@
             // 
             // tabPagSesiones
             // 
+            this.tabPagSesiones.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagSesiones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagSesiones.Controls.Add(this.dgvSesiones);
             this.tabPagSesiones.Controls.Add(this.gbSesiones);
@@ -1944,12 +2187,14 @@
             this.tabPagSesiones.Size = new System.Drawing.Size(1147, 511);
             this.tabPagSesiones.TabIndex = 7;
             this.tabPagSesiones.Text = "Sesiones";
-            this.tabPagSesiones.UseVisualStyleBackColor = true;
             // 
             // dgvSesiones
             // 
             this.dgvSesiones.AllowUserToAddRows = false;
             this.dgvSesiones.AllowUserToDeleteRows = false;
+            this.dgvSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSesiones.AutoGenerateColumns = false;
             this.dgvSesiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSesiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2025,12 +2270,15 @@
             // 
             // gbSesiones
             // 
+            this.gbSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbSesiones.Controls.Add(this.btnCancelarSesiones);
             this.gbSesiones.Controls.Add(this.btnAceptarSesiones);
             this.gbSesiones.Controls.Add(this.btnEliminarSesiones);
             this.gbSesiones.Controls.Add(this.btnEditarSesiones);
             this.gbSesiones.Controls.Add(this.btnAgregarSesiones);
             this.gbSesiones.Controls.Add(this.panCamposSesiones);
+            this.gbSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSesiones.Location = new System.Drawing.Point(783, 21);
             this.gbSesiones.Name = "gbSesiones";
             this.gbSesiones.Size = new System.Drawing.Size(341, 465);
@@ -2040,8 +2288,9 @@
             // 
             // btnCancelarSesiones
             // 
+            this.btnCancelarSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarSesiones.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarSesiones.Location = new System.Drawing.Point(293, 409);
+            this.btnCancelarSesiones.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarSesiones.Name = "btnCancelarSesiones";
             this.btnCancelarSesiones.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarSesiones.TabIndex = 51;
@@ -2050,8 +2299,9 @@
             // 
             // btnAceptarSesiones
             // 
+            this.btnAceptarSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarSesiones.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarSesiones.Location = new System.Drawing.Point(254, 409);
+            this.btnAceptarSesiones.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarSesiones.Name = "btnAceptarSesiones";
             this.btnAceptarSesiones.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarSesiones.TabIndex = 50;
@@ -2060,36 +2310,50 @@
             // 
             // btnEliminarSesiones
             // 
-            this.btnEliminarSesiones.Location = new System.Drawing.Point(173, 409);
+            this.btnEliminarSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarSesiones.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarSesiones.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarSesiones.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarSesiones.Name = "btnEliminarSesiones";
-            this.btnEliminarSesiones.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarSesiones.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarSesiones.TabIndex = 49;
             this.btnEliminarSesiones.Text = "Eliminar";
-            this.btnEliminarSesiones.UseVisualStyleBackColor = true;
+            this.btnEliminarSesiones.UseVisualStyleBackColor = false;
             this.btnEliminarSesiones.Click += new System.EventHandler(this.btnEliminarSesiones_Click);
             // 
             // btnEditarSesiones
             // 
-            this.btnEditarSesiones.Location = new System.Drawing.Point(92, 409);
+            this.btnEditarSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarSesiones.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarSesiones.ForeColor = System.Drawing.Color.White;
+            this.btnEditarSesiones.Location = new System.Drawing.Point(97, 408);
             this.btnEditarSesiones.Name = "btnEditarSesiones";
-            this.btnEditarSesiones.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarSesiones.Size = new System.Drawing.Size(75, 41);
             this.btnEditarSesiones.TabIndex = 48;
             this.btnEditarSesiones.Text = "Editar";
-            this.btnEditarSesiones.UseVisualStyleBackColor = true;
+            this.btnEditarSesiones.UseVisualStyleBackColor = false;
             this.btnEditarSesiones.Click += new System.EventHandler(this.btnEditarSesiones_Click);
             // 
             // btnAgregarSesiones
             // 
-            this.btnAgregarSesiones.Location = new System.Drawing.Point(11, 409);
+            this.btnAgregarSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarSesiones.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarSesiones.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarSesiones.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarSesiones.Name = "btnAgregarSesiones";
-            this.btnAgregarSesiones.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarSesiones.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarSesiones.TabIndex = 47;
             this.btnAgregarSesiones.Text = "Agregar";
-            this.btnAgregarSesiones.UseVisualStyleBackColor = true;
+            this.btnAgregarSesiones.UseVisualStyleBackColor = false;
             this.btnAgregarSesiones.Click += new System.EventHandler(this.btnAgregarSesiones_Click);
             // 
             // panCamposSesiones
             // 
+            this.panCamposSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposSesiones.Controls.Add(this.txtFechaSesiones);
             this.panCamposSesiones.Controls.Add(this.lblFechaSesiones);
             this.panCamposSesiones.Controls.Add(this.txtHoraInicio);
@@ -2099,6 +2363,7 @@
             this.panCamposSesiones.Controls.Add(this.lblNombreSalaSesiones);
             this.panCamposSesiones.Controls.Add(this.lblHoraInicio);
             this.panCamposSesiones.Enabled = false;
+            this.panCamposSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposSesiones.Location = new System.Drawing.Point(6, 21);
             this.panCamposSesiones.Name = "panCamposSesiones";
             this.panCamposSesiones.Size = new System.Drawing.Size(319, 222);
@@ -2106,6 +2371,8 @@
             // 
             // txtFechaSesiones
             // 
+            this.txtFechaSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFechaSesiones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSesiones, "Fecha", true));
             this.txtFechaSesiones.Location = new System.Drawing.Point(6, 28);
             this.txtFechaSesiones.Name = "txtFechaSesiones";
@@ -2114,6 +2381,8 @@
             // 
             // lblFechaSesiones
             // 
+            this.lblFechaSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaSesiones.AutoSize = true;
             this.lblFechaSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaSesiones.Location = new System.Drawing.Point(3, 9);
@@ -2124,6 +2393,8 @@
             // 
             // txtHoraInicio
             // 
+            this.txtHoraInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHoraInicio.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSesiones, "HoraInicio", true));
             this.txtHoraInicio.Location = new System.Drawing.Point(6, 131);
             this.txtHoraInicio.Name = "txtHoraInicio";
@@ -2132,6 +2403,8 @@
             // 
             // cmbPeliculasSesiones
             // 
+            this.cmbPeliculasSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPeliculasSesiones.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsSesiones, "IdPelicula", true));
             this.cmbPeliculasSesiones.FormattingEnabled = true;
             this.cmbPeliculasSesiones.Location = new System.Drawing.Point(6, 75);
@@ -2141,6 +2414,8 @@
             // 
             // lblTituloPeliculaSesiones
             // 
+            this.lblTituloPeliculaSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTituloPeliculaSesiones.AutoSize = true;
             this.lblTituloPeliculaSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloPeliculaSesiones.Location = new System.Drawing.Point(3, 56);
@@ -2151,6 +2426,8 @@
             // 
             // cmbSalasSesiones
             // 
+            this.cmbSalasSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSalasSesiones.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsSesiones, "IdSala", true));
             this.cmbSalasSesiones.FormattingEnabled = true;
             this.cmbSalasSesiones.Location = new System.Drawing.Point(6, 186);
@@ -2160,6 +2437,8 @@
             // 
             // lblNombreSalaSesiones
             // 
+            this.lblNombreSalaSesiones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreSalaSesiones.AutoSize = true;
             this.lblNombreSalaSesiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreSalaSesiones.Location = new System.Drawing.Point(3, 166);
@@ -2170,6 +2449,8 @@
             // 
             // lblHoraInicio
             // 
+            this.lblHoraInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHoraInicio.AutoSize = true;
             this.lblHoraInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoraInicio.Location = new System.Drawing.Point(3, 112);
@@ -2180,6 +2461,7 @@
             // 
             // tabPagGenero
             // 
+            this.tabPagGenero.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagGenero.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagGenero.Controls.Add(this.dgvGenero);
             this.tabPagGenero.Controls.Add(this.gbGenero);
@@ -2189,12 +2471,14 @@
             this.tabPagGenero.Size = new System.Drawing.Size(1147, 511);
             this.tabPagGenero.TabIndex = 6;
             this.tabPagGenero.Text = "Géneros";
-            this.tabPagGenero.UseVisualStyleBackColor = true;
             // 
             // dgvGenero
             // 
             this.dgvGenero.AllowUserToAddRows = false;
             this.dgvGenero.AllowUserToDeleteRows = false;
+            this.dgvGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGenero.AutoGenerateColumns = false;
             this.dgvGenero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGenero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2230,12 +2514,15 @@
             // 
             // gbGenero
             // 
+            this.gbGenero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbGenero.Controls.Add(this.btnCancelarGenero);
             this.gbGenero.Controls.Add(this.btnAceptarGenero);
             this.gbGenero.Controls.Add(this.btnEliminarGenero);
             this.gbGenero.Controls.Add(this.btnEditarGenero);
             this.gbGenero.Controls.Add(this.btnAgregarGenero);
             this.gbGenero.Controls.Add(this.panCamposGenero);
+            this.gbGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGenero.Location = new System.Drawing.Point(783, 21);
             this.gbGenero.Name = "gbGenero";
             this.gbGenero.Size = new System.Drawing.Size(341, 465);
@@ -2245,8 +2532,9 @@
             // 
             // btnCancelarGenero
             // 
+            this.btnCancelarGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarGenero.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarGenero.Location = new System.Drawing.Point(296, 408);
+            this.btnCancelarGenero.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarGenero.Name = "btnCancelarGenero";
             this.btnCancelarGenero.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarGenero.TabIndex = 46;
@@ -2255,8 +2543,9 @@
             // 
             // btnAceptarGenero
             // 
+            this.btnAceptarGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarGenero.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarGenero.Location = new System.Drawing.Point(257, 408);
+            this.btnAceptarGenero.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarGenero.Name = "btnAceptarGenero";
             this.btnAceptarGenero.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarGenero.TabIndex = 45;
@@ -2265,39 +2554,54 @@
             // 
             // btnEliminarGenero
             // 
-            this.btnEliminarGenero.Location = new System.Drawing.Point(176, 408);
+            this.btnEliminarGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarGenero.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarGenero.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarGenero.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarGenero.Name = "btnEliminarGenero";
-            this.btnEliminarGenero.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarGenero.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarGenero.TabIndex = 44;
             this.btnEliminarGenero.Text = "Eliminar";
-            this.btnEliminarGenero.UseVisualStyleBackColor = true;
+            this.btnEliminarGenero.UseVisualStyleBackColor = false;
             this.btnEliminarGenero.Click += new System.EventHandler(this.btnEliminarGenero_Click);
             // 
             // btnEditarGenero
             // 
-            this.btnEditarGenero.Location = new System.Drawing.Point(95, 408);
+            this.btnEditarGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarGenero.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarGenero.ForeColor = System.Drawing.Color.White;
+            this.btnEditarGenero.Location = new System.Drawing.Point(97, 408);
             this.btnEditarGenero.Name = "btnEditarGenero";
-            this.btnEditarGenero.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarGenero.Size = new System.Drawing.Size(75, 41);
             this.btnEditarGenero.TabIndex = 43;
             this.btnEditarGenero.Text = "Editar";
-            this.btnEditarGenero.UseVisualStyleBackColor = true;
+            this.btnEditarGenero.UseVisualStyleBackColor = false;
             this.btnEditarGenero.Click += new System.EventHandler(this.btnEditarGenero_Click);
             // 
             // btnAgregarGenero
             // 
-            this.btnAgregarGenero.Location = new System.Drawing.Point(14, 408);
+            this.btnAgregarGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarGenero.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarGenero.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarGenero.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarGenero.Name = "btnAgregarGenero";
-            this.btnAgregarGenero.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarGenero.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarGenero.TabIndex = 42;
             this.btnAgregarGenero.Text = "Agregar";
-            this.btnAgregarGenero.UseVisualStyleBackColor = true;
+            this.btnAgregarGenero.UseVisualStyleBackColor = false;
             this.btnAgregarGenero.Click += new System.EventHandler(this.btnAgregarGenero_Click);
             // 
             // panCamposGenero
             // 
+            this.panCamposGenero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposGenero.Controls.Add(this.txtGenero);
             this.panCamposGenero.Controls.Add(this.lblGenero);
             this.panCamposGenero.Enabled = false;
+            this.panCamposGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposGenero.Location = new System.Drawing.Point(8, 18);
             this.panCamposGenero.Name = "panCamposGenero";
             this.panCamposGenero.Size = new System.Drawing.Size(319, 59);
@@ -2305,6 +2609,8 @@
             // 
             // txtGenero
             // 
+            this.txtGenero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGenero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsGenero, "Genero", true));
             this.txtGenero.Location = new System.Drawing.Point(3, 24);
             this.txtGenero.Name = "txtGenero";
@@ -2313,6 +2619,8 @@
             // 
             // lblGenero
             // 
+            this.lblGenero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGenero.AutoSize = true;
             this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenero.Location = new System.Drawing.Point(0, 5);
@@ -2323,6 +2631,7 @@
             // 
             // tabPagEstadoPago
             // 
+            this.tabPagEstadoPago.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagEstadoPago.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagEstadoPago.Controls.Add(this.dgvEstadoPago);
             this.tabPagEstadoPago.Controls.Add(this.gbEstadoPago);
@@ -2332,12 +2641,14 @@
             this.tabPagEstadoPago.Size = new System.Drawing.Size(1147, 511);
             this.tabPagEstadoPago.TabIndex = 5;
             this.tabPagEstadoPago.Text = "Estados de pago";
-            this.tabPagEstadoPago.UseVisualStyleBackColor = true;
             // 
             // dgvEstadoPago
             // 
             this.dgvEstadoPago.AllowUserToAddRows = false;
             this.dgvEstadoPago.AllowUserToDeleteRows = false;
+            this.dgvEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEstadoPago.AutoGenerateColumns = false;
             this.dgvEstadoPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstadoPago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2373,12 +2684,15 @@
             // 
             // gbEstadoPago
             // 
+            this.gbEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEstadoPago.Controls.Add(this.btnCancelarEstadoPago);
             this.gbEstadoPago.Controls.Add(this.btnAceptarEstadoPago);
             this.gbEstadoPago.Controls.Add(this.btnEliminarEstadoPago);
             this.gbEstadoPago.Controls.Add(this.btnEditarEstadoPago);
             this.gbEstadoPago.Controls.Add(this.btnAgregarEstadoPago);
             this.gbEstadoPago.Controls.Add(this.panCamposEstadoPago);
+            this.gbEstadoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEstadoPago.Location = new System.Drawing.Point(783, 21);
             this.gbEstadoPago.Name = "gbEstadoPago";
             this.gbEstadoPago.Size = new System.Drawing.Size(341, 465);
@@ -2388,8 +2702,9 @@
             // 
             // btnCancelarEstadoPago
             // 
+            this.btnCancelarEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarEstadoPago.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarEstadoPago.Location = new System.Drawing.Point(293, 409);
+            this.btnCancelarEstadoPago.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarEstadoPago.Name = "btnCancelarEstadoPago";
             this.btnCancelarEstadoPago.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarEstadoPago.TabIndex = 40;
@@ -2398,8 +2713,9 @@
             // 
             // btnAceptarEstadoPago
             // 
+            this.btnAceptarEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarEstadoPago.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarEstadoPago.Location = new System.Drawing.Point(254, 409);
+            this.btnAceptarEstadoPago.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarEstadoPago.Name = "btnAceptarEstadoPago";
             this.btnAceptarEstadoPago.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarEstadoPago.TabIndex = 39;
@@ -2408,39 +2724,54 @@
             // 
             // btnEliminarEstadoPago
             // 
-            this.btnEliminarEstadoPago.Location = new System.Drawing.Point(173, 409);
+            this.btnEliminarEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarEstadoPago.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarEstadoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEstadoPago.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEstadoPago.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarEstadoPago.Name = "btnEliminarEstadoPago";
-            this.btnEliminarEstadoPago.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarEstadoPago.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarEstadoPago.TabIndex = 38;
             this.btnEliminarEstadoPago.Text = "Eliminar";
-            this.btnEliminarEstadoPago.UseVisualStyleBackColor = true;
+            this.btnEliminarEstadoPago.UseVisualStyleBackColor = false;
             this.btnEliminarEstadoPago.Click += new System.EventHandler(this.btnEliminarEstadoPago_Click);
             // 
             // btnEditarEstadoPago
             // 
-            this.btnEditarEstadoPago.Location = new System.Drawing.Point(92, 409);
+            this.btnEditarEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarEstadoPago.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarEstadoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarEstadoPago.ForeColor = System.Drawing.Color.White;
+            this.btnEditarEstadoPago.Location = new System.Drawing.Point(97, 408);
             this.btnEditarEstadoPago.Name = "btnEditarEstadoPago";
-            this.btnEditarEstadoPago.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarEstadoPago.Size = new System.Drawing.Size(75, 41);
             this.btnEditarEstadoPago.TabIndex = 37;
             this.btnEditarEstadoPago.Text = "Editar";
-            this.btnEditarEstadoPago.UseVisualStyleBackColor = true;
+            this.btnEditarEstadoPago.UseVisualStyleBackColor = false;
             this.btnEditarEstadoPago.Click += new System.EventHandler(this.btnEditarEstadoPago_Click);
             // 
             // btnAgregarEstadoPago
             // 
-            this.btnAgregarEstadoPago.Location = new System.Drawing.Point(11, 409);
+            this.btnAgregarEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarEstadoPago.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarEstadoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarEstadoPago.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarEstadoPago.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarEstadoPago.Name = "btnAgregarEstadoPago";
-            this.btnAgregarEstadoPago.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarEstadoPago.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarEstadoPago.TabIndex = 36;
             this.btnAgregarEstadoPago.Text = "Agregar";
-            this.btnAgregarEstadoPago.UseVisualStyleBackColor = true;
+            this.btnAgregarEstadoPago.UseVisualStyleBackColor = false;
             this.btnAgregarEstadoPago.Click += new System.EventHandler(this.btnAgregarEstadoPago_Click);
             // 
             // panCamposEstadoPago
             // 
+            this.panCamposEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposEstadoPago.Controls.Add(this.txtEstadoPago);
             this.panCamposEstadoPago.Controls.Add(this.lblEstadoPago);
             this.panCamposEstadoPago.Enabled = false;
+            this.panCamposEstadoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposEstadoPago.Location = new System.Drawing.Point(6, 21);
             this.panCamposEstadoPago.Name = "panCamposEstadoPago";
             this.panCamposEstadoPago.Size = new System.Drawing.Size(319, 59);
@@ -2448,6 +2779,8 @@
             // 
             // txtEstadoPago
             // 
+            this.txtEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEstadoPago.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsEstadoPago, "Estado", true));
             this.txtEstadoPago.Location = new System.Drawing.Point(3, 24);
             this.txtEstadoPago.Name = "txtEstadoPago";
@@ -2456,6 +2789,8 @@
             // 
             // lblEstadoPago
             // 
+            this.lblEstadoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstadoPago.AutoSize = true;
             this.lblEstadoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoPago.Location = new System.Drawing.Point(0, 5);
@@ -2466,6 +2801,7 @@
             // 
             // tabPagEstadoEmpleados
             // 
+            this.tabPagEstadoEmpleados.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagEstadoEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagEstadoEmpleados.Controls.Add(this.dgvEstadoEmpleados);
             this.tabPagEstadoEmpleados.Controls.Add(this.gbEstadoEmpleados);
@@ -2475,12 +2811,14 @@
             this.tabPagEstadoEmpleados.Size = new System.Drawing.Size(1147, 511);
             this.tabPagEstadoEmpleados.TabIndex = 3;
             this.tabPagEstadoEmpleados.Text = "Estado de los empleados";
-            this.tabPagEstadoEmpleados.UseVisualStyleBackColor = true;
             // 
             // dgvEstadoEmpleados
             // 
             this.dgvEstadoEmpleados.AllowUserToAddRows = false;
             this.dgvEstadoEmpleados.AllowUserToDeleteRows = false;
+            this.dgvEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEstadoEmpleados.AutoGenerateColumns = false;
             this.dgvEstadoEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstadoEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2521,12 +2859,15 @@
             // 
             // gbEstadoEmpleados
             // 
+            this.gbEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEstadoEmpleados.Controls.Add(this.btnCancelarEstadoEmpleados);
             this.gbEstadoEmpleados.Controls.Add(this.btnAceptarEstadoEmpleados);
             this.gbEstadoEmpleados.Controls.Add(this.btnEliminarEstadoEmpleados);
             this.gbEstadoEmpleados.Controls.Add(this.btnEditarEstadoEmpleados);
             this.gbEstadoEmpleados.Controls.Add(this.btnAgregarEstadoEmpleados);
             this.gbEstadoEmpleados.Controls.Add(this.panCamposEstadoEmpleados);
+            this.gbEstadoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEstadoEmpleados.Location = new System.Drawing.Point(783, 21);
             this.gbEstadoEmpleados.Name = "gbEstadoEmpleados";
             this.gbEstadoEmpleados.Size = new System.Drawing.Size(341, 465);
@@ -2536,8 +2877,9 @@
             // 
             // btnCancelarEstadoEmpleados
             // 
+            this.btnCancelarEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarEstadoEmpleados.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarEstadoEmpleados.Location = new System.Drawing.Point(294, 409);
+            this.btnCancelarEstadoEmpleados.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarEstadoEmpleados.Name = "btnCancelarEstadoEmpleados";
             this.btnCancelarEstadoEmpleados.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarEstadoEmpleados.TabIndex = 35;
@@ -2546,8 +2888,9 @@
             // 
             // btnAceptarEstadoEmpleados
             // 
+            this.btnAceptarEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarEstadoEmpleados.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarEstadoEmpleados.Location = new System.Drawing.Point(255, 409);
+            this.btnAceptarEstadoEmpleados.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarEstadoEmpleados.Name = "btnAceptarEstadoEmpleados";
             this.btnAceptarEstadoEmpleados.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarEstadoEmpleados.TabIndex = 34;
@@ -2556,39 +2899,54 @@
             // 
             // btnEliminarEstadoEmpleados
             // 
-            this.btnEliminarEstadoEmpleados.Location = new System.Drawing.Point(174, 409);
+            this.btnEliminarEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarEstadoEmpleados.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarEstadoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEstadoEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEstadoEmpleados.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarEstadoEmpleados.Name = "btnEliminarEstadoEmpleados";
-            this.btnEliminarEstadoEmpleados.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarEstadoEmpleados.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarEstadoEmpleados.TabIndex = 33;
             this.btnEliminarEstadoEmpleados.Text = "Eliminar";
-            this.btnEliminarEstadoEmpleados.UseVisualStyleBackColor = true;
+            this.btnEliminarEstadoEmpleados.UseVisualStyleBackColor = false;
             this.btnEliminarEstadoEmpleados.Click += new System.EventHandler(this.btnEliminarEstadoEmpleados_Click);
             // 
             // btnEditarEstadoEmpleados
             // 
-            this.btnEditarEstadoEmpleados.Location = new System.Drawing.Point(93, 409);
+            this.btnEditarEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarEstadoEmpleados.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarEstadoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarEstadoEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEditarEstadoEmpleados.Location = new System.Drawing.Point(97, 408);
             this.btnEditarEstadoEmpleados.Name = "btnEditarEstadoEmpleados";
-            this.btnEditarEstadoEmpleados.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarEstadoEmpleados.Size = new System.Drawing.Size(75, 41);
             this.btnEditarEstadoEmpleados.TabIndex = 32;
             this.btnEditarEstadoEmpleados.Text = "Editar";
-            this.btnEditarEstadoEmpleados.UseVisualStyleBackColor = true;
+            this.btnEditarEstadoEmpleados.UseVisualStyleBackColor = false;
             this.btnEditarEstadoEmpleados.Click += new System.EventHandler(this.btnEditarEstadoEmpleados_Click);
             // 
             // btnAgregarEstadoEmpleados
             // 
-            this.btnAgregarEstadoEmpleados.Location = new System.Drawing.Point(12, 409);
+            this.btnAgregarEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarEstadoEmpleados.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarEstadoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarEstadoEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarEstadoEmpleados.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarEstadoEmpleados.Name = "btnAgregarEstadoEmpleados";
-            this.btnAgregarEstadoEmpleados.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarEstadoEmpleados.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarEstadoEmpleados.TabIndex = 31;
             this.btnAgregarEstadoEmpleados.Text = "Agregar";
-            this.btnAgregarEstadoEmpleados.UseVisualStyleBackColor = true;
+            this.btnAgregarEstadoEmpleados.UseVisualStyleBackColor = false;
             this.btnAgregarEstadoEmpleados.Click += new System.EventHandler(this.btnAgregarEstadoEmpleados_Click);
             // 
             // panCamposEstadoEmpleados
             // 
+            this.panCamposEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposEstadoEmpleados.Controls.Add(this.txtEstadoEmpleados);
             this.panCamposEstadoEmpleados.Controls.Add(this.lblEstadoEmpleados);
             this.panCamposEstadoEmpleados.Enabled = false;
+            this.panCamposEstadoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposEstadoEmpleados.Location = new System.Drawing.Point(10, 21);
             this.panCamposEstadoEmpleados.Name = "panCamposEstadoEmpleados";
             this.panCamposEstadoEmpleados.Size = new System.Drawing.Size(319, 59);
@@ -2596,6 +2954,8 @@
             // 
             // txtEstadoEmpleados
             // 
+            this.txtEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEstadoEmpleados.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsEstadoEmpleados, "Estado", true));
             this.txtEstadoEmpleados.Location = new System.Drawing.Point(3, 24);
             this.txtEstadoEmpleados.Name = "txtEstadoEmpleados";
@@ -2604,6 +2964,8 @@
             // 
             // lblEstadoEmpleados
             // 
+            this.lblEstadoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstadoEmpleados.AutoSize = true;
             this.lblEstadoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoEmpleados.Location = new System.Drawing.Point(0, 5);
@@ -2614,6 +2976,7 @@
             // 
             // tabPagEstadoAsientos
             // 
+            this.tabPagEstadoAsientos.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagEstadoAsientos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagEstadoAsientos.Controls.Add(this.dgvEstadoAsientos);
             this.tabPagEstadoAsientos.Controls.Add(this.gbEstadoAsientos);
@@ -2623,12 +2986,14 @@
             this.tabPagEstadoAsientos.Size = new System.Drawing.Size(1147, 511);
             this.tabPagEstadoAsientos.TabIndex = 4;
             this.tabPagEstadoAsientos.Text = "Estado de los asientos";
-            this.tabPagEstadoAsientos.UseVisualStyleBackColor = true;
             // 
             // dgvEstadoAsientos
             // 
             this.dgvEstadoAsientos.AllowUserToAddRows = false;
             this.dgvEstadoAsientos.AllowUserToDeleteRows = false;
+            this.dgvEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEstadoAsientos.AutoGenerateColumns = false;
             this.dgvEstadoAsientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstadoAsientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2669,12 +3034,15 @@
             // 
             // gbEstadoAsientos
             // 
+            this.gbEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEstadoAsientos.Controls.Add(this.panCamposEstadoAsientos);
             this.gbEstadoAsientos.Controls.Add(this.btnCancelarEstadoAsientos);
             this.gbEstadoAsientos.Controls.Add(this.btnAceptarEstadoAsientos);
             this.gbEstadoAsientos.Controls.Add(this.btnEliminarEstadoAsientos);
             this.gbEstadoAsientos.Controls.Add(this.btnEditarEstadoAsientos);
             this.gbEstadoAsientos.Controls.Add(this.btnAgregarEstadoAsientos);
+            this.gbEstadoAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEstadoAsientos.Location = new System.Drawing.Point(783, 21);
             this.gbEstadoAsientos.Name = "gbEstadoAsientos";
             this.gbEstadoAsientos.Size = new System.Drawing.Size(341, 465);
@@ -2684,9 +3052,12 @@
             // 
             // panCamposEstadoAsientos
             // 
+            this.panCamposEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposEstadoAsientos.Controls.Add(this.txtEstadoAsientos);
             this.panCamposEstadoAsientos.Controls.Add(this.lblEstadoAsientos);
             this.panCamposEstadoAsientos.Enabled = false;
+            this.panCamposEstadoAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposEstadoAsientos.Location = new System.Drawing.Point(10, 21);
             this.panCamposEstadoAsientos.Name = "panCamposEstadoAsientos";
             this.panCamposEstadoAsientos.Size = new System.Drawing.Size(319, 60);
@@ -2694,6 +3065,8 @@
             // 
             // txtEstadoAsientos
             // 
+            this.txtEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEstadoAsientos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsEstadoAsientos, "Estado", true));
             this.txtEstadoAsientos.Location = new System.Drawing.Point(6, 26);
             this.txtEstadoAsientos.Name = "txtEstadoAsientos";
@@ -2702,6 +3075,8 @@
             // 
             // lblEstadoAsientos
             // 
+            this.lblEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstadoAsientos.AutoSize = true;
             this.lblEstadoAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoAsientos.Location = new System.Drawing.Point(3, 7);
@@ -2712,8 +3087,9 @@
             // 
             // btnCancelarEstadoAsientos
             // 
+            this.btnCancelarEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarEstadoAsientos.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarEstadoAsientos.Location = new System.Drawing.Point(292, 409);
+            this.btnCancelarEstadoAsientos.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarEstadoAsientos.Name = "btnCancelarEstadoAsientos";
             this.btnCancelarEstadoAsientos.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarEstadoAsientos.TabIndex = 30;
@@ -2722,8 +3098,9 @@
             // 
             // btnAceptarEstadoAsientos
             // 
+            this.btnAceptarEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarEstadoAsientos.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarEstadoAsientos.Location = new System.Drawing.Point(253, 409);
+            this.btnAceptarEstadoAsientos.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarEstadoAsientos.Name = "btnAceptarEstadoAsientos";
             this.btnAceptarEstadoAsientos.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarEstadoAsientos.TabIndex = 29;
@@ -2732,36 +3109,49 @@
             // 
             // btnEliminarEstadoAsientos
             // 
-            this.btnEliminarEstadoAsientos.Location = new System.Drawing.Point(172, 409);
+            this.btnEliminarEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarEstadoAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarEstadoAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEstadoAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEstadoAsientos.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarEstadoAsientos.Name = "btnEliminarEstadoAsientos";
-            this.btnEliminarEstadoAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarEstadoAsientos.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarEstadoAsientos.TabIndex = 28;
             this.btnEliminarEstadoAsientos.Text = "Eliminar";
-            this.btnEliminarEstadoAsientos.UseVisualStyleBackColor = true;
+            this.btnEliminarEstadoAsientos.UseVisualStyleBackColor = false;
             this.btnEliminarEstadoAsientos.Click += new System.EventHandler(this.btnEliminarEstadoAsientos_Click);
             // 
             // btnEditarEstadoAsientos
             // 
-            this.btnEditarEstadoAsientos.Location = new System.Drawing.Point(91, 409);
+            this.btnEditarEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarEstadoAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarEstadoAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarEstadoAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnEditarEstadoAsientos.Location = new System.Drawing.Point(97, 408);
             this.btnEditarEstadoAsientos.Name = "btnEditarEstadoAsientos";
-            this.btnEditarEstadoAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarEstadoAsientos.Size = new System.Drawing.Size(75, 41);
             this.btnEditarEstadoAsientos.TabIndex = 27;
             this.btnEditarEstadoAsientos.Text = "Editar";
-            this.btnEditarEstadoAsientos.UseVisualStyleBackColor = true;
+            this.btnEditarEstadoAsientos.UseVisualStyleBackColor = false;
             this.btnEditarEstadoAsientos.Click += new System.EventHandler(this.btnEditarEstadoAsientos_Click);
             // 
             // btnAgregarEstadoAsientos
             // 
-            this.btnAgregarEstadoAsientos.Location = new System.Drawing.Point(10, 409);
+            this.btnAgregarEstadoAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarEstadoAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarEstadoAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarEstadoAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarEstadoAsientos.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarEstadoAsientos.Name = "btnAgregarEstadoAsientos";
-            this.btnAgregarEstadoAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarEstadoAsientos.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarEstadoAsientos.TabIndex = 26;
             this.btnAgregarEstadoAsientos.Text = "Agregar";
-            this.btnAgregarEstadoAsientos.UseVisualStyleBackColor = true;
+            this.btnAgregarEstadoAsientos.UseVisualStyleBackColor = false;
             this.btnAgregarEstadoAsientos.Click += new System.EventHandler(this.btnAgregarEstadoAsientos_Click);
             // 
             // tabPagEmpleados
             // 
+            this.tabPagEmpleados.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagEmpleados.Controls.Add(this.dgvEmpleados);
             this.tabPagEmpleados.Controls.Add(this.gbEmpleados);
@@ -2771,12 +3161,14 @@
             this.tabPagEmpleados.Size = new System.Drawing.Size(1147, 511);
             this.tabPagEmpleados.TabIndex = 2;
             this.tabPagEmpleados.Text = "Empleados";
-            this.tabPagEmpleados.UseVisualStyleBackColor = true;
             // 
             // dgvEmpleados
             // 
             this.dgvEmpleados.AllowUserToAddRows = false;
             this.dgvEmpleados.AllowUserToDeleteRows = false;
+            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmpleados.AutoGenerateColumns = false;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2882,12 +3274,15 @@
             // 
             // gbEmpleados
             // 
+            this.gbEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEmpleados.Controls.Add(this.panCamposEmpleados);
             this.gbEmpleados.Controls.Add(this.btnCancelarEmpleados);
             this.gbEmpleados.Controls.Add(this.btnAceptarEmpleados);
             this.gbEmpleados.Controls.Add(this.btnEliminarEmpleados);
             this.gbEmpleados.Controls.Add(this.btnEditarEmpleados);
             this.gbEmpleados.Controls.Add(this.btnAgregarEmpleados);
+            this.gbEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEmpleados.Location = new System.Drawing.Point(783, 21);
             this.gbEmpleados.Name = "gbEmpleados";
             this.gbEmpleados.Size = new System.Drawing.Size(341, 465);
@@ -2897,6 +3292,8 @@
             // 
             // panCamposEmpleados
             // 
+            this.panCamposEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposEmpleados.Controls.Add(this.cmbUsuariosEmpleados);
             this.panCamposEmpleados.Controls.Add(this.cmbEstadoEmpleadosEmpleados);
             this.panCamposEmpleados.Controls.Add(this.cmbPuestoTrabajoEmpleados);
@@ -2910,6 +3307,7 @@
             this.panCamposEmpleados.Controls.Add(this.txtNombre);
             this.panCamposEmpleados.Controls.Add(this.lblNombre);
             this.panCamposEmpleados.Enabled = false;
+            this.panCamposEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposEmpleados.Location = new System.Drawing.Point(6, 21);
             this.panCamposEmpleados.Name = "panCamposEmpleados";
             this.panCamposEmpleados.Size = new System.Drawing.Size(319, 335);
@@ -2917,6 +3315,8 @@
             // 
             // cmbUsuariosEmpleados
             // 
+            this.cmbUsuariosEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbUsuariosEmpleados.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsEmpleados, "IdUsuario", true));
             this.cmbUsuariosEmpleados.DisplayMember = "Id";
             this.cmbUsuariosEmpleados.FormattingEnabled = true;
@@ -2928,6 +3328,8 @@
             // 
             // cmbEstadoEmpleadosEmpleados
             // 
+            this.cmbEstadoEmpleadosEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstadoEmpleadosEmpleados.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsEmpleados, "IdEstado", true));
             this.cmbEstadoEmpleadosEmpleados.DisplayMember = "Id";
             this.cmbEstadoEmpleadosEmpleados.FormattingEnabled = true;
@@ -2939,6 +3341,8 @@
             // 
             // cmbPuestoTrabajoEmpleados
             // 
+            this.cmbPuestoTrabajoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPuestoTrabajoEmpleados.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsEmpleados, "IdPuesto", true));
             this.cmbPuestoTrabajoEmpleados.FormattingEnabled = true;
             this.cmbPuestoTrabajoEmpleados.Location = new System.Drawing.Point(6, 186);
@@ -2948,6 +3352,8 @@
             // 
             // lblNombreUsuarioEmpleados
             // 
+            this.lblNombreUsuarioEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreUsuarioEmpleados.AutoSize = true;
             this.lblNombreUsuarioEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuarioEmpleados.Location = new System.Drawing.Point(3, 282);
@@ -2958,6 +3364,8 @@
             // 
             // txtCorreo
             // 
+            this.txtCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsEmpleados, "Correo", true));
             this.txtCorreo.Location = new System.Drawing.Point(6, 132);
             this.txtCorreo.Name = "txtCorreo";
@@ -2966,6 +3374,8 @@
             // 
             // lblCorreo
             // 
+            this.lblCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreo.Location = new System.Drawing.Point(3, 113);
@@ -2976,6 +3386,8 @@
             // 
             // lblEstadoEmpleadosEmpleados
             // 
+            this.lblEstadoEmpleadosEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstadoEmpleadosEmpleados.AutoSize = true;
             this.lblEstadoEmpleadosEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoEmpleadosEmpleados.Location = new System.Drawing.Point(3, 224);
@@ -2986,6 +3398,8 @@
             // 
             // lblPuestoTrabajoEmpleados
             // 
+            this.lblPuestoTrabajoEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPuestoTrabajoEmpleados.AutoSize = true;
             this.lblPuestoTrabajoEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuestoTrabajoEmpleados.Location = new System.Drawing.Point(3, 166);
@@ -2996,6 +3410,8 @@
             // 
             // txtApellidos
             // 
+            this.txtApellidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellidos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsEmpleados, "Apellidos", true));
             this.txtApellidos.Location = new System.Drawing.Point(6, 79);
             this.txtApellidos.Name = "txtApellidos";
@@ -3004,6 +3420,8 @@
             // 
             // lblApellidos
             // 
+            this.lblApellidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellidos.Location = new System.Drawing.Point(3, 60);
@@ -3014,6 +3432,8 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsEmpleados, "Nombre", true));
             this.txtNombre.Location = new System.Drawing.Point(6, 29);
             this.txtNombre.Name = "txtNombre";
@@ -3022,6 +3442,8 @@
             // 
             // lblNombre
             // 
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.Location = new System.Drawing.Point(3, 10);
@@ -3032,8 +3454,9 @@
             // 
             // btnCancelarEmpleados
             // 
+            this.btnCancelarEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarEmpleados.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarEmpleados.Location = new System.Drawing.Point(293, 409);
+            this.btnCancelarEmpleados.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarEmpleados.Name = "btnCancelarEmpleados";
             this.btnCancelarEmpleados.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarEmpleados.TabIndex = 25;
@@ -3042,8 +3465,9 @@
             // 
             // btnAceptarEmpleados
             // 
+            this.btnAceptarEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarEmpleados.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarEmpleados.Location = new System.Drawing.Point(254, 409);
+            this.btnAceptarEmpleados.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarEmpleados.Name = "btnAceptarEmpleados";
             this.btnAceptarEmpleados.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarEmpleados.TabIndex = 24;
@@ -3052,36 +3476,49 @@
             // 
             // btnEliminarEmpleados
             // 
-            this.btnEliminarEmpleados.Location = new System.Drawing.Point(173, 409);
+            this.btnEliminarEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarEmpleados.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEmpleados.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarEmpleados.Name = "btnEliminarEmpleados";
-            this.btnEliminarEmpleados.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarEmpleados.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarEmpleados.TabIndex = 23;
             this.btnEliminarEmpleados.Text = "Eliminar";
-            this.btnEliminarEmpleados.UseVisualStyleBackColor = true;
+            this.btnEliminarEmpleados.UseVisualStyleBackColor = false;
             this.btnEliminarEmpleados.Click += new System.EventHandler(this.btnEliminarEmpleados_Click);
             // 
             // btnEditarEmpleados
             // 
-            this.btnEditarEmpleados.Location = new System.Drawing.Point(92, 409);
+            this.btnEditarEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarEmpleados.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEditarEmpleados.Location = new System.Drawing.Point(97, 408);
             this.btnEditarEmpleados.Name = "btnEditarEmpleados";
-            this.btnEditarEmpleados.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarEmpleados.Size = new System.Drawing.Size(75, 41);
             this.btnEditarEmpleados.TabIndex = 22;
             this.btnEditarEmpleados.Text = "Editar";
-            this.btnEditarEmpleados.UseVisualStyleBackColor = true;
+            this.btnEditarEmpleados.UseVisualStyleBackColor = false;
             this.btnEditarEmpleados.Click += new System.EventHandler(this.btnEditarEmpleados_Click);
             // 
             // btnAgregarEmpleados
             // 
-            this.btnAgregarEmpleados.Location = new System.Drawing.Point(11, 409);
+            this.btnAgregarEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarEmpleados.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarEmpleados.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarEmpleados.Name = "btnAgregarEmpleados";
-            this.btnAgregarEmpleados.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarEmpleados.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarEmpleados.TabIndex = 21;
             this.btnAgregarEmpleados.Text = "Agregar";
-            this.btnAgregarEmpleados.UseVisualStyleBackColor = true;
+            this.btnAgregarEmpleados.UseVisualStyleBackColor = false;
             this.btnAgregarEmpleados.Click += new System.EventHandler(this.btnAgregarEmpleados_Click);
             // 
             // tabPagAsientos
             // 
+            this.tabPagAsientos.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagAsientos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPagAsientos.Controls.Add(this.dgvAsientos);
             this.tabPagAsientos.Controls.Add(this.gbAsientos);
@@ -3091,19 +3528,23 @@
             this.tabPagAsientos.Size = new System.Drawing.Size(1147, 511);
             this.tabPagAsientos.TabIndex = 0;
             this.tabPagAsientos.Text = "Asientos";
-            this.tabPagAsientos.UseVisualStyleBackColor = true;
             // 
             // dgvAsientos
             // 
             this.dgvAsientos.AllowUserToAddRows = false;
             this.dgvAsientos.AllowUserToDeleteRows = false;
+            this.dgvAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAsientos.AutoGenerateColumns = false;
+            this.dgvAsientos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.dgvAsientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.idSalaDataGridViewTextBoxColumn,
             this.numFilaDataGridViewTextBoxColumn,
-            this.numColumnaDataGridViewTextBoxColumn});
+            this.numColumnaDataGridViewTextBoxColumn,
+            this.inhabilitadoDataGridViewCheckBoxColumn});
             this.dgvAsientos.DataSource = this.bsAsientos;
             this.dgvAsientos.Location = new System.Drawing.Point(18, 21);
             this.dgvAsientos.Name = "dgvAsientos";
@@ -3127,15 +3568,10 @@
             // idSalaDataGridViewTextBoxColumn
             // 
             this.idSalaDataGridViewTextBoxColumn.DataPropertyName = "IdSala";
-            this.idSalaDataGridViewTextBoxColumn.DataSource = this.bsSalas;
-            this.idSalaDataGridViewTextBoxColumn.DisplayMember = "Nombre";
             this.idSalaDataGridViewTextBoxColumn.HeaderText = "IdSala";
             this.idSalaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idSalaDataGridViewTextBoxColumn.Name = "idSalaDataGridViewTextBoxColumn";
             this.idSalaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idSalaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idSalaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idSalaDataGridViewTextBoxColumn.ValueMember = "Id";
             this.idSalaDataGridViewTextBoxColumn.Width = 125;
             // 
             // numFilaDataGridViewTextBoxColumn
@@ -3156,14 +3592,26 @@
             this.numColumnaDataGridViewTextBoxColumn.ReadOnly = true;
             this.numColumnaDataGridViewTextBoxColumn.Width = 125;
             // 
+            // inhabilitadoDataGridViewCheckBoxColumn
+            // 
+            this.inhabilitadoDataGridViewCheckBoxColumn.DataPropertyName = "Inhabilitado";
+            this.inhabilitadoDataGridViewCheckBoxColumn.HeaderText = "Inhabilitado";
+            this.inhabilitadoDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.inhabilitadoDataGridViewCheckBoxColumn.Name = "inhabilitadoDataGridViewCheckBoxColumn";
+            this.inhabilitadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.inhabilitadoDataGridViewCheckBoxColumn.Width = 125;
+            // 
             // gbAsientos
             // 
+            this.gbAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbAsientos.Controls.Add(this.btnCancelarAsientos);
             this.gbAsientos.Controls.Add(this.panCamposAsientos);
             this.gbAsientos.Controls.Add(this.btnAceptarAsientos);
             this.gbAsientos.Controls.Add(this.btnEliminarAsientos);
             this.gbAsientos.Controls.Add(this.btnEditarAsientos);
             this.gbAsientos.Controls.Add(this.btnAgregarAsientos);
+            this.gbAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbAsientos.Location = new System.Drawing.Point(783, 21);
             this.gbAsientos.Name = "gbAsientos";
             this.gbAsientos.Size = new System.Drawing.Size(341, 465);
@@ -3173,8 +3621,9 @@
             // 
             // btnCancelarAsientos
             // 
+            this.btnCancelarAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarAsientos.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarAsientos.Location = new System.Drawing.Point(294, 416);
+            this.btnCancelarAsientos.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarAsientos.Name = "btnCancelarAsientos";
             this.btnCancelarAsientos.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarAsientos.TabIndex = 20;
@@ -3183,7 +3632,11 @@
             // 
             // panCamposAsientos
             // 
+            this.panCamposAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposAsientos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panCamposAsientos.Controls.Add(this.lblInhabilitado);
+            this.panCamposAsientos.Controls.Add(this.txtInhabilitado);
             this.panCamposAsientos.Controls.Add(this.lblSalaEmpleados);
             this.panCamposAsientos.Controls.Add(this.lblNumFila);
             this.panCamposAsientos.Controls.Add(this.cmbSalaAsientos);
@@ -3191,13 +3644,38 @@
             this.panCamposAsientos.Controls.Add(this.lblNumColumna);
             this.panCamposAsientos.Controls.Add(this.txtNumColumna);
             this.panCamposAsientos.Enabled = false;
+            this.panCamposAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposAsientos.Location = new System.Drawing.Point(6, 21);
             this.panCamposAsientos.Name = "panCamposAsientos";
-            this.panCamposAsientos.Size = new System.Drawing.Size(323, 155);
+            this.panCamposAsientos.Size = new System.Drawing.Size(323, 211);
             this.panCamposAsientos.TabIndex = 5;
+            // 
+            // lblInhabilitado
+            // 
+            this.lblInhabilitado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInhabilitado.AutoSize = true;
+            this.lblInhabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInhabilitado.Location = new System.Drawing.Point(3, 161);
+            this.lblInhabilitado.Name = "lblInhabilitado";
+            this.lblInhabilitado.Size = new System.Drawing.Size(92, 16);
+            this.lblInhabilitado.TabIndex = 18;
+            this.lblInhabilitado.Text = "Inhabilitado:";
+            // 
+            // txtInhabilitado
+            // 
+            this.txtInhabilitado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtInhabilitado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsAsientos, "Inhabilitado", true));
+            this.txtInhabilitado.Location = new System.Drawing.Point(6, 180);
+            this.txtInhabilitado.Name = "txtInhabilitado";
+            this.txtInhabilitado.Size = new System.Drawing.Size(314, 22);
+            this.txtInhabilitado.TabIndex = 19;
             // 
             // lblSalaEmpleados
             // 
+            this.lblSalaEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSalaEmpleados.AutoSize = true;
             this.lblSalaEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSalaEmpleados.Location = new System.Drawing.Point(3, 6);
@@ -3208,6 +3686,8 @@
             // 
             // lblNumFila
             // 
+            this.lblNumFila.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumFila.AutoSize = true;
             this.lblNumFila.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumFila.Location = new System.Drawing.Point(3, 56);
@@ -3218,6 +3698,8 @@
             // 
             // cmbSalaAsientos
             // 
+            this.cmbSalaAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSalaAsientos.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsAsientos, "IdSala", true));
             this.cmbSalaAsientos.DisplayMember = "Id";
             this.cmbSalaAsientos.Location = new System.Drawing.Point(6, 26);
@@ -3228,6 +3710,8 @@
             // 
             // txtNumFila
             // 
+            this.txtNumFila.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumFila.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsAsientos, "NumFila", true));
             this.txtNumFila.Location = new System.Drawing.Point(6, 75);
             this.txtNumFila.Name = "txtNumFila";
@@ -3236,6 +3720,8 @@
             // 
             // lblNumColumna
             // 
+            this.lblNumColumna.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumColumna.AutoSize = true;
             this.lblNumColumna.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumColumna.Location = new System.Drawing.Point(3, 107);
@@ -3246,6 +3732,8 @@
             // 
             // txtNumColumna
             // 
+            this.txtNumColumna.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumColumna.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsAsientos, "NumColumna", true));
             this.txtNumColumna.Location = new System.Drawing.Point(6, 126);
             this.txtNumColumna.Name = "txtNumColumna";
@@ -3254,8 +3742,9 @@
             // 
             // btnAceptarAsientos
             // 
+            this.btnAceptarAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarAsientos.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarAsientos.Location = new System.Drawing.Point(255, 416);
+            this.btnAceptarAsientos.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarAsientos.Name = "btnAceptarAsientos";
             this.btnAceptarAsientos.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarAsientos.TabIndex = 19;
@@ -3264,36 +3753,51 @@
             // 
             // btnEliminarAsientos
             // 
-            this.btnEliminarAsientos.Location = new System.Drawing.Point(174, 416);
+            this.btnEliminarAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarAsientos.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarAsientos.Name = "btnEliminarAsientos";
-            this.btnEliminarAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarAsientos.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarAsientos.TabIndex = 16;
             this.btnEliminarAsientos.Text = "Eliminar";
-            this.btnEliminarAsientos.UseVisualStyleBackColor = true;
+            this.btnEliminarAsientos.UseVisualStyleBackColor = false;
             this.btnEliminarAsientos.Click += new System.EventHandler(this.btnEliminarAsientos_Click);
             // 
             // btnEditarAsientos
             // 
-            this.btnEditarAsientos.Location = new System.Drawing.Point(93, 416);
+            this.btnEditarAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnEditarAsientos.Location = new System.Drawing.Point(97, 408);
             this.btnEditarAsientos.Name = "btnEditarAsientos";
-            this.btnEditarAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarAsientos.Size = new System.Drawing.Size(75, 41);
             this.btnEditarAsientos.TabIndex = 15;
             this.btnEditarAsientos.Text = "Editar";
-            this.btnEditarAsientos.UseVisualStyleBackColor = true;
+            this.btnEditarAsientos.UseVisualStyleBackColor = false;
             this.btnEditarAsientos.Click += new System.EventHandler(this.btnEditarAsientos_Click);
             // 
             // btnAgregarAsientos
             // 
-            this.btnAgregarAsientos.Location = new System.Drawing.Point(12, 416);
+            this.btnAgregarAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarAsientos.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarAsientos.Name = "btnAgregarAsientos";
-            this.btnAgregarAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarAsientos.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarAsientos.TabIndex = 14;
             this.btnAgregarAsientos.Text = "Agregar";
-            this.btnAgregarAsientos.UseVisualStyleBackColor = true;
+            this.btnAgregarAsientos.UseVisualStyleBackColor = false;
             this.btnAgregarAsientos.Click += new System.EventHandler(this.btnAgregarAsientos_Click);
             // 
             // tabCtrlDatos
             // 
+            this.tabCtrlDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabCtrlDatos.Controls.Add(this.tabPagAsientos);
             this.tabCtrlDatos.Controls.Add(this.tabPagEmpleados);
             this.tabCtrlDatos.Controls.Add(this.tabPagEstadoAsientos);
@@ -3309,7 +3813,7 @@
             this.tabCtrlDatos.Controls.Add(this.tabPagSalas);
             this.tabCtrlDatos.Controls.Add(this.tabPagUsuarios);
             this.tabCtrlDatos.Controls.Add(this.tabPagCupones);
-            this.tabCtrlDatos.Location = new System.Drawing.Point(11, 113);
+            this.tabCtrlDatos.Location = new System.Drawing.Point(11, 140);
             this.tabCtrlDatos.Name = "tabCtrlDatos";
             this.tabCtrlDatos.SelectedIndex = 0;
             this.tabCtrlDatos.Size = new System.Drawing.Size(1155, 540);
@@ -3318,6 +3822,7 @@
             // 
             // tabPagSesionAsientos
             // 
+            this.tabPagSesionAsientos.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagSesionAsientos.Controls.Add(this.dgvSesionAsientos);
             this.tabPagSesionAsientos.Controls.Add(this.gbSesionAsientos);
             this.tabPagSesionAsientos.Location = new System.Drawing.Point(4, 25);
@@ -3325,12 +3830,14 @@
             this.tabPagSesionAsientos.Size = new System.Drawing.Size(1147, 511);
             this.tabPagSesionAsientos.TabIndex = 14;
             this.tabPagSesionAsientos.Text = "Asientos de las sesiones";
-            this.tabPagSesionAsientos.UseVisualStyleBackColor = true;
             // 
             // dgvSesionAsientos
             // 
             this.dgvSesionAsientos.AllowUserToAddRows = false;
             this.dgvSesionAsientos.AllowUserToDeleteRows = false;
+            this.dgvSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSesionAsientos.AutoGenerateColumns = false;
             this.dgvSesionAsientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSesionAsientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -3406,12 +3913,15 @@
             // 
             // gbSesionAsientos
             // 
+            this.gbSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbSesionAsientos.Controls.Add(this.btnCancelarSesionAsientos);
             this.gbSesionAsientos.Controls.Add(this.btnAceptarSesionAsientos);
             this.gbSesionAsientos.Controls.Add(this.btnEliminarSesionAsientos);
             this.gbSesionAsientos.Controls.Add(this.btnEditarSesionAsientos);
             this.gbSesionAsientos.Controls.Add(this.btnAgregarSesionAsientos);
             this.gbSesionAsientos.Controls.Add(this.panCamposSesionAsientos);
+            this.gbSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSesionAsientos.Location = new System.Drawing.Point(783, 21);
             this.gbSesionAsientos.Name = "gbSesionAsientos";
             this.gbSesionAsientos.Size = new System.Drawing.Size(341, 465);
@@ -3421,8 +3931,9 @@
             // 
             // btnCancelarSesionAsientos
             // 
+            this.btnCancelarSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarSesionAsientos.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarSesionAsientos.Location = new System.Drawing.Point(293, 408);
+            this.btnCancelarSesionAsientos.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarSesionAsientos.Name = "btnCancelarSesionAsientos";
             this.btnCancelarSesionAsientos.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarSesionAsientos.TabIndex = 51;
@@ -3431,8 +3942,9 @@
             // 
             // btnAceptarSesionAsientos
             // 
+            this.btnAceptarSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarSesionAsientos.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarSesionAsientos.Location = new System.Drawing.Point(254, 408);
+            this.btnAceptarSesionAsientos.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarSesionAsientos.Name = "btnAceptarSesionAsientos";
             this.btnAceptarSesionAsientos.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarSesionAsientos.TabIndex = 50;
@@ -3441,36 +3953,50 @@
             // 
             // btnEliminarSesionAsientos
             // 
-            this.btnEliminarSesionAsientos.Location = new System.Drawing.Point(173, 408);
+            this.btnEliminarSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarSesionAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarSesionAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarSesionAsientos.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarSesionAsientos.Name = "btnEliminarSesionAsientos";
-            this.btnEliminarSesionAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarSesionAsientos.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarSesionAsientos.TabIndex = 49;
             this.btnEliminarSesionAsientos.Text = "Eliminar";
-            this.btnEliminarSesionAsientos.UseVisualStyleBackColor = true;
+            this.btnEliminarSesionAsientos.UseVisualStyleBackColor = false;
             this.btnEliminarSesionAsientos.Click += new System.EventHandler(this.btnEliminarSesionAsientos_Click);
             // 
             // btnEditarSesionAsientos
             // 
-            this.btnEditarSesionAsientos.Location = new System.Drawing.Point(92, 408);
+            this.btnEditarSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarSesionAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarSesionAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnEditarSesionAsientos.Location = new System.Drawing.Point(97, 408);
             this.btnEditarSesionAsientos.Name = "btnEditarSesionAsientos";
-            this.btnEditarSesionAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarSesionAsientos.Size = new System.Drawing.Size(75, 41);
             this.btnEditarSesionAsientos.TabIndex = 48;
             this.btnEditarSesionAsientos.Text = "Editar";
-            this.btnEditarSesionAsientos.UseVisualStyleBackColor = true;
+            this.btnEditarSesionAsientos.UseVisualStyleBackColor = false;
             this.btnEditarSesionAsientos.Click += new System.EventHandler(this.btnEditarSesionAsientos_Click);
             // 
             // btnAgregarSesionAsientos
             // 
-            this.btnAgregarSesionAsientos.Location = new System.Drawing.Point(11, 408);
+            this.btnAgregarSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarSesionAsientos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarSesionAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarSesionAsientos.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarSesionAsientos.Name = "btnAgregarSesionAsientos";
-            this.btnAgregarSesionAsientos.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarSesionAsientos.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarSesionAsientos.TabIndex = 47;
             this.btnAgregarSesionAsientos.Text = "Agregar";
-            this.btnAgregarSesionAsientos.UseVisualStyleBackColor = true;
+            this.btnAgregarSesionAsientos.UseVisualStyleBackColor = false;
             this.btnAgregarSesionAsientos.Click += new System.EventHandler(this.btnAgregarSesionAsientos_Click);
             // 
             // panCamposSesionAsientos
             // 
+            this.panCamposSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposSesionAsientos.Controls.Add(this.cmbSesionesSesionAsientos);
             this.panCamposSesionAsientos.Controls.Add(this.lblSesionesSesionAsientos);
             this.panCamposSesionAsientos.Controls.Add(this.cmbAsientosSesionAsientos);
@@ -3478,6 +4004,7 @@
             this.panCamposSesionAsientos.Controls.Add(this.cmbEstadoAsientosSesionAsientos);
             this.panCamposSesionAsientos.Controls.Add(this.lblEstadoAsientosSesionAsientos);
             this.panCamposSesionAsientos.Enabled = false;
+            this.panCamposSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposSesionAsientos.Location = new System.Drawing.Point(6, 21);
             this.panCamposSesionAsientos.Name = "panCamposSesionAsientos";
             this.panCamposSesionAsientos.Size = new System.Drawing.Size(319, 170);
@@ -3485,6 +4012,8 @@
             // 
             // cmbSesionesSesionAsientos
             // 
+            this.cmbSesionesSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSesionesSesionAsientos.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsSesionAsientos, "IdSesion", true));
             this.cmbSesionesSesionAsientos.FormattingEnabled = true;
             this.cmbSesionesSesionAsientos.Location = new System.Drawing.Point(6, 29);
@@ -3494,6 +4023,8 @@
             // 
             // lblSesionesSesionAsientos
             // 
+            this.lblSesionesSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSesionesSesionAsientos.AutoSize = true;
             this.lblSesionesSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSesionesSesionAsientos.Location = new System.Drawing.Point(3, 10);
@@ -3504,6 +4035,8 @@
             // 
             // cmbAsientosSesionAsientos
             // 
+            this.cmbAsientosSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbAsientosSesionAsientos.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsSesionAsientos, "IdAsiento", true));
             this.cmbAsientosSesionAsientos.FormattingEnabled = true;
             this.cmbAsientosSesionAsientos.Location = new System.Drawing.Point(6, 82);
@@ -3513,6 +4046,8 @@
             // 
             // lblAsientosSesionAsientos
             // 
+            this.lblAsientosSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAsientosSesionAsientos.AutoSize = true;
             this.lblAsientosSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsientosSesionAsientos.Location = new System.Drawing.Point(3, 63);
@@ -3523,6 +4058,8 @@
             // 
             // cmbEstadoAsientosSesionAsientos
             // 
+            this.cmbEstadoAsientosSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstadoAsientosSesionAsientos.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsSesionAsientos, "IdEstado", true));
             this.cmbEstadoAsientosSesionAsientos.FormattingEnabled = true;
             this.cmbEstadoAsientosSesionAsientos.Location = new System.Drawing.Point(7, 134);
@@ -3532,6 +4069,8 @@
             // 
             // lblEstadoAsientosSesionAsientos
             // 
+            this.lblEstadoAsientosSesionAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstadoAsientosSesionAsientos.AutoSize = true;
             this.lblEstadoAsientosSesionAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoAsientosSesionAsientos.Location = new System.Drawing.Point(4, 114);
@@ -3542,6 +4081,7 @@
             // 
             // tabPagCupones
             // 
+            this.tabPagCupones.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPagCupones.Controls.Add(this.dgvCupones);
             this.tabPagCupones.Controls.Add(this.gbCupones);
             this.tabPagCupones.Location = new System.Drawing.Point(4, 25);
@@ -3549,12 +4089,14 @@
             this.tabPagCupones.Size = new System.Drawing.Size(1147, 511);
             this.tabPagCupones.TabIndex = 15;
             this.tabPagCupones.Text = "Cupones";
-            this.tabPagCupones.UseVisualStyleBackColor = true;
             // 
             // dgvCupones
             // 
             this.dgvCupones.AllowUserToAddRows = false;
             this.dgvCupones.AllowUserToDeleteRows = false;
+            this.dgvCupones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCupones.AutoGenerateColumns = false;
             this.dgvCupones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCupones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -3631,12 +4173,15 @@
             // 
             // gbCupones
             // 
+            this.gbCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbCupones.Controls.Add(this.btnCancelarCupones);
             this.gbCupones.Controls.Add(this.panCamposCupones);
             this.gbCupones.Controls.Add(this.btnAceptarCupones);
             this.gbCupones.Controls.Add(this.btnEliminarCupones);
             this.gbCupones.Controls.Add(this.btnEditarCupones);
             this.gbCupones.Controls.Add(this.btnAgregarCupones);
+            this.gbCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCupones.Location = new System.Drawing.Point(785, 23);
             this.gbCupones.Name = "gbCupones";
             this.gbCupones.Size = new System.Drawing.Size(341, 465);
@@ -3646,8 +4191,9 @@
             // 
             // btnCancelarCupones
             // 
+            this.btnCancelarCupones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarCupones.Image = global::CineApp.Properties.Resources.Cancelar;
-            this.btnCancelarCupones.Location = new System.Drawing.Point(294, 416);
+            this.btnCancelarCupones.Location = new System.Drawing.Point(297, 411);
             this.btnCancelarCupones.Name = "btnCancelarCupones";
             this.btnCancelarCupones.Size = new System.Drawing.Size(32, 32);
             this.btnCancelarCupones.TabIndex = 20;
@@ -3656,6 +4202,8 @@
             // 
             // panCamposCupones
             // 
+            this.panCamposCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panCamposCupones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panCamposCupones.Controls.Add(this.txtFechaCaducidadCupones);
             this.panCamposCupones.Controls.Add(this.lblFechaCaducidadCupones);
@@ -3668,6 +4216,7 @@
             this.panCamposCupones.Controls.Add(this.lblFechaInicioCupones);
             this.panCamposCupones.Controls.Add(this.txtFechaInicioCupones);
             this.panCamposCupones.Enabled = false;
+            this.panCamposCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panCamposCupones.Location = new System.Drawing.Point(6, 21);
             this.panCamposCupones.Name = "panCamposCupones";
             this.panCamposCupones.Size = new System.Drawing.Size(323, 268);
@@ -3675,6 +4224,8 @@
             // 
             // txtFechaCaducidadCupones
             // 
+            this.txtFechaCaducidadCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFechaCaducidadCupones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsCupones, "FechaCaducidad", true));
             this.txtFechaCaducidadCupones.Location = new System.Drawing.Point(6, 181);
             this.txtFechaCaducidadCupones.Name = "txtFechaCaducidadCupones";
@@ -3683,6 +4234,8 @@
             // 
             // lblFechaCaducidadCupones
             // 
+            this.lblFechaCaducidadCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaCaducidadCupones.AutoSize = true;
             this.lblFechaCaducidadCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaCaducidadCupones.Location = new System.Drawing.Point(3, 162);
@@ -3693,6 +4246,8 @@
             // 
             // lblCosteCupones
             // 
+            this.lblCosteCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCosteCupones.AutoSize = true;
             this.lblCosteCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCosteCupones.Location = new System.Drawing.Point(3, 212);
@@ -3703,6 +4258,8 @@
             // 
             // txtCostePuntos
             // 
+            this.txtCostePuntos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostePuntos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsCupones, "CostePuntos", true));
             this.txtCostePuntos.Location = new System.Drawing.Point(6, 231);
             this.txtCostePuntos.Name = "txtCostePuntos";
@@ -3711,6 +4268,8 @@
             // 
             // txtDescripcionCupones
             // 
+            this.txtDescripcionCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcionCupones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsCupones, "Descripcion", true));
             this.txtDescripcionCupones.Location = new System.Drawing.Point(6, 25);
             this.txtDescripcionCupones.Name = "txtDescripcionCupones";
@@ -3719,6 +4278,8 @@
             // 
             // lblDescripcionCupones
             // 
+            this.lblDescripcionCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescripcionCupones.AutoSize = true;
             this.lblDescripcionCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionCupones.Location = new System.Drawing.Point(3, 6);
@@ -3729,6 +4290,8 @@
             // 
             // lblImagenCupones
             // 
+            this.lblImagenCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblImagenCupones.AutoSize = true;
             this.lblImagenCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImagenCupones.Location = new System.Drawing.Point(3, 56);
@@ -3739,6 +4302,8 @@
             // 
             // txtImagenCupones
             // 
+            this.txtImagenCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtImagenCupones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsCupones, "Imagen", true));
             this.txtImagenCupones.Location = new System.Drawing.Point(6, 75);
             this.txtImagenCupones.Name = "txtImagenCupones";
@@ -3747,6 +4312,8 @@
             // 
             // lblFechaInicioCupones
             // 
+            this.lblFechaInicioCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaInicioCupones.AutoSize = true;
             this.lblFechaInicioCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicioCupones.Location = new System.Drawing.Point(3, 107);
@@ -3757,6 +4324,8 @@
             // 
             // txtFechaInicioCupones
             // 
+            this.txtFechaInicioCupones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFechaInicioCupones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsCupones, "FechaInicio", true));
             this.txtFechaInicioCupones.Location = new System.Drawing.Point(6, 126);
             this.txtFechaInicioCupones.Name = "txtFechaInicioCupones";
@@ -3765,8 +4334,9 @@
             // 
             // btnAceptarCupones
             // 
+            this.btnAceptarCupones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptarCupones.Image = global::CineApp.Properties.Resources.Aceptar;
-            this.btnAceptarCupones.Location = new System.Drawing.Point(255, 416);
+            this.btnAceptarCupones.Location = new System.Drawing.Point(268, 411);
             this.btnAceptarCupones.Name = "btnAceptarCupones";
             this.btnAceptarCupones.Size = new System.Drawing.Size(32, 32);
             this.btnAceptarCupones.TabIndex = 19;
@@ -3775,42 +4345,89 @@
             // 
             // btnEliminarCupones
             // 
-            this.btnEliminarCupones.Location = new System.Drawing.Point(174, 416);
+            this.btnEliminarCupones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarCupones.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCupones.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCupones.Location = new System.Drawing.Point(178, 408);
             this.btnEliminarCupones.Name = "btnEliminarCupones";
-            this.btnEliminarCupones.Size = new System.Drawing.Size(75, 33);
+            this.btnEliminarCupones.Size = new System.Drawing.Size(84, 41);
             this.btnEliminarCupones.TabIndex = 16;
             this.btnEliminarCupones.Text = "Eliminar";
-            this.btnEliminarCupones.UseVisualStyleBackColor = true;
+            this.btnEliminarCupones.UseVisualStyleBackColor = false;
             this.btnEliminarCupones.Click += new System.EventHandler(this.btnEliminarCupones_Click);
             // 
             // btnEditarCupones
             // 
-            this.btnEditarCupones.Location = new System.Drawing.Point(93, 416);
+            this.btnEditarCupones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarCupones.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEditarCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarCupones.ForeColor = System.Drawing.Color.White;
+            this.btnEditarCupones.Location = new System.Drawing.Point(97, 408);
             this.btnEditarCupones.Name = "btnEditarCupones";
-            this.btnEditarCupones.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarCupones.Size = new System.Drawing.Size(75, 41);
             this.btnEditarCupones.TabIndex = 15;
             this.btnEditarCupones.Text = "Editar";
-            this.btnEditarCupones.UseVisualStyleBackColor = true;
+            this.btnEditarCupones.UseVisualStyleBackColor = false;
             this.btnEditarCupones.Click += new System.EventHandler(this.btnEditarCupones_Click);
             // 
             // btnAgregarCupones
             // 
-            this.btnAgregarCupones.Location = new System.Drawing.Point(12, 416);
+            this.btnAgregarCupones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarCupones.BackColor = System.Drawing.Color.Firebrick;
+            this.btnAgregarCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCupones.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarCupones.Location = new System.Drawing.Point(6, 408);
             this.btnAgregarCupones.Name = "btnAgregarCupones";
-            this.btnAgregarCupones.Size = new System.Drawing.Size(75, 33);
+            this.btnAgregarCupones.Size = new System.Drawing.Size(85, 41);
             this.btnAgregarCupones.TabIndex = 14;
             this.btnAgregarCupones.Text = "Agregar";
-            this.btnAgregarCupones.UseVisualStyleBackColor = true;
+            this.btnAgregarCupones.UseVisualStyleBackColor = false;
             this.btnAgregarCupones.Click += new System.EventHandler(this.btnAgregarCupones_Click);
+            // 
+            // panLogo
+            // 
+            this.panLogo.BackgroundImage = global::CineApp.Properties.Resources.LogoApp;
+            this.panLogo.Location = new System.Drawing.Point(15, 12);
+            this.panLogo.Name = "panLogo";
+            this.panLogo.Size = new System.Drawing.Size(115, 100);
+            this.panLogo.TabIndex = 7;
+            // 
+            // lblEncabezado1
+            // 
+            this.lblEncabezado1.AutoSize = true;
+            this.lblEncabezado1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncabezado1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblEncabezado1.Location = new System.Drawing.Point(173, 23);
+            this.lblEncabezado1.Name = "lblEncabezado1";
+            this.lblEncabezado1.Size = new System.Drawing.Size(537, 38);
+            this.lblEncabezado1.TabIndex = 8;
+            this.lblEncabezado1.Text = "ProCinema - Gestión inteligente de Cines";
+            // 
+            // lblEncabezado2
+            // 
+            this.lblEncabezado2.AutoSize = true;
+            this.lblEncabezado2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncabezado2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblEncabezado2.Location = new System.Drawing.Point(175, 76);
+            this.lblEncabezado2.Name = "lblEncabezado2";
+            this.lblEncabezado2.Size = new System.Drawing.Size(186, 28);
+            this.lblEncabezado2.TabIndex = 9;
+            this.lblEncabezado2.Text = "Tu cine, tu control.";
             // 
             // FAdministracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1182, 703);
+            this.Controls.Add(this.lblEncabezado2);
+            this.Controls.Add(this.lblEncabezado1);
+            this.Controls.Add(this.panLogo);
             this.Controls.Add(this.tabCtrlDatos);
             this.Controls.Add(this.lblUsuarioLog);
             this.Name = "FAdministracion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Principal (Administración)";
             this.Load += new System.EventHandler(this.FAdministracion_Load);
             this.tabPagUsuarios.ResumeLayout(false);
@@ -4169,10 +4786,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn idSalaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numFilaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numColumnaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn idPeliculaDataGridViewTextBoxColumn;
@@ -4229,5 +4842,15 @@
         private System.Windows.Forms.TextBox txtDescripcionCupones;
         private System.Windows.Forms.TextBox txtPuntos;
         private System.Windows.Forms.Label lblPuntos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSalaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numFilaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numColumnaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn inhabilitadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Label lblInhabilitado;
+        private System.Windows.Forms.TextBox txtInhabilitado;
+        private System.Windows.Forms.Panel panLogo;
+        private System.Windows.Forms.Label lblEncabezado1;
+        private System.Windows.Forms.Label lblEncabezado2;
     }
 }

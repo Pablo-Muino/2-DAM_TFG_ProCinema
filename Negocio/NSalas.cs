@@ -30,6 +30,39 @@ namespace Negocio
         }
 
         /**
+         * Método que obtiene una sala de la tabla Salas mediante su id
+         * ds - DataSet con las tablas de la base de datos
+         * id - Id de la sala que se quiere obtener
+         */
+        public static Sala obtenerSalaId(DSCine ds, int id)
+        {
+            try
+            {
+                SalasTableAdapter ta = new SalasTableAdapter();
+                ta.FillById(ds.Salas, id);
+
+                //Se recoge la primera fila que coincida
+                var fila = ds.Salas.FirstOrDefault();
+
+                if (fila != null)
+                {
+                    //Se crea un objeto Sala para despues devolverlo
+                    return new Sala(
+                        fila.Nombre,
+                        int.Parse(fila.Capacidad)
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener la sala: " + ex.Message);
+            }
+
+            //En caso de no encontrar tal registro se devuelve null
+            return null;
+        }
+
+        /**
          * Método que actualiza la tabla Salas con los datos de todos los registros
          * ds - DataSet con las tablas de la base de datos
          */

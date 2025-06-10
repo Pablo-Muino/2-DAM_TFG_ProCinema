@@ -52,6 +52,10 @@ namespace Negocio
                         fila.Estado
                     );
                 }
+                else
+                {
+                    Console.WriteLine("No se encontró ninguna fila con ese ID.");
+                }
             }
             catch (Exception ex)
             {

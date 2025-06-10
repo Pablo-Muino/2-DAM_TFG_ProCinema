@@ -39,6 +39,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblUsuario.Location = new System.Drawing.Point(23, 32);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(57, 16);
@@ -48,6 +49,7 @@
             // lblPelicula
             // 
             this.lblPelicula.AutoSize = true;
+            this.lblPelicula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblPelicula.Location = new System.Drawing.Point(23, 66);
             this.lblPelicula.Name = "lblPelicula";
             this.lblPelicula.Size = new System.Drawing.Size(58, 16);
@@ -57,6 +59,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
+            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblFecha.Location = new System.Drawing.Point(23, 322);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(48, 16);
@@ -73,6 +76,7 @@
             // 
             // lblComentario
             // 
+            this.lblComentario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblComentario.Location = new System.Drawing.Point(23, 100);
             this.lblComentario.Name = "lblComentario";
             this.lblComentario.Size = new System.Drawing.Size(500, 200);
@@ -84,7 +88,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lblComentario);
             this.Controls.Add(this.picBoxEstrellas);

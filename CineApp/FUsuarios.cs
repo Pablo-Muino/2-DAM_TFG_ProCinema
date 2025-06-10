@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -100,6 +101,9 @@ namespace CineApp
          */
         private void CargarCartelera()
         {
+            //Para evitar el parpadeo que se genera cuando el sistema carga cada una de las imágenes de los asientos se establece que se carguen internamente
+            SuspendDrawing(this.Handle);
+
             //Se limpian los campos por si acaso hubieran datos en ellos
             txtTitulo.Clear();
             txtGenero.Clear();
@@ -112,6 +116,11 @@ namespace CineApp
 
             //Se muestran las portadas en el FlowLayoutPanel
             MostrarPortadas();
+
+            //Cuando se terminen de cargas las imágenes se actualiza de una sola vez
+            ResumeDrawing(this.Handle);
+            this.Refresh();
+            this.Update();
         }
 
         /**
@@ -128,11 +137,15 @@ namespace CineApp
             //Se recoge el número de peliculas actuales en la tabla Peliculas
             int totalPeliculas = peliculas.Count;
 
-            //Se establece que hayan 4 columnas (para que sea más visible)
-            int columnas = 4;
+            //Se establece el ancho de las películas dependiendo del tamaño del panel que contiene la tabla
+            int anchoPanel = tblCartelera.Parent.ClientSize.Width;
+            int anchoPorPelicula = 120;
 
-            //Se establece que el número de filas sea el total de películas entre las columnas redondeando hacia arriba
-            int filas = (int) Math.Ceiling((double) totalPeliculas / columnas);
+            //Se establece que el número de columnas sea el ancho del panel entre el ancho de las películas (cuanto más grande sea el panel más películas habrá en la misma fila)
+            int columnas = Math.Max(1, anchoPanel / anchoPorPelicula);
+
+            //Se establece que el número de filas sea el total de las películas entre las columnas existentes, redondeando hacia arriba
+            int filas = (int)Math.Ceiling((double)totalPeliculas / columnas);
 
             //Se establecen el número de columnas y filas recien calculados a las propiedades respectivas en la tabla
             tblCartelera.RowCount = filas;
@@ -166,7 +179,7 @@ namespace CineApp
                     {
                         //Color de fondo inicial (antes de que se le de clic)
                         BackColor = Color.FromArgb(10, 15, 44),
-
+                        Dock = DockStyle.Fill,
                         Padding = new Padding(5),
                         Margin = new Padding(5),
                         BorderStyle = BorderStyle.FixedSingle,
@@ -196,7 +209,8 @@ namespace CineApp
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = false,
                         Height = 60,
-                        Font = fuenteTitulo
+                        Font = fuenteTitulo,
+                        ForeColor = Color.White
                     };
 
 
@@ -246,14 +260,14 @@ namespace CineApp
             //Si habia una pelicula seleccionada se restablece su color
             if (panelSeleccionado != null)
             {
-                panelSeleccionado.BackColor = Color.White;
+                panelSeleccionado.BackColor = Color.FromArgb(10, 15, 44);
             }
 
             //Se establece que el panel seleccionado sea el actual (al que se le acaba de dar clic)
             panelSeleccionado = panelActual;
 
             //Se le cambia el color de fondo para resaltar la selección
-            panelSeleccionado.BackColor = Color.LightBlue;
+            panelSeleccionado.BackColor = Color.SlateGray;
 
             //Se recupera la pelicula almacenada en Tag cuando se creó el PictureBox y, si coincide con la pelicula seleccionada se sigue
             if (sender is PictureBox portada && portada.Tag is Pelicula pelicula)
@@ -274,16 +288,23 @@ namespace CineApp
          */
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            //Se cierra la ventana Usuarios
-            Hide();
+            //Se muestra la ventana Asientos si se ha seleccionado una película
+            if (peliculaActual == null)
+            {
+                MessageBox.Show("No se ha seleccionado ninguna película para reservar las entradas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } else
+            {
+                //Se cierra la ventana Usuarios
+                Hide();
 
-            FAsientos fAsientos = new FAsientos(usuario, peliculaActual, cuponActual);
+                FAsientos fAsientos = new FAsientos(usuario, peliculaActual, cuponActual);
 
-            //Al cerrar la ventana fAsientos se volverá a mostrar fUsuarios
-            fAsientos.FormClosed += (s, args) => Show();
+                //Al cerrar la ventana fAsientos se volverá a mostrar fUsuarios
+                fAsientos.FormClosed += (s, args) => Show();
 
-            //Se muestra la ventana Asientos
-            fAsientos.Show();
+                fAsientos.Show();
+            }
         }
 
         /**
@@ -291,6 +312,9 @@ namespace CineApp
          */
         private void CargarCupones()
         {
+            //Para evitar el parpadeo que se genera cuando el sistema carga cada una de las imágenes de los asientos se establece que se carguen internamente
+            SuspendDrawing(this.Handle);
+
             //Se obtienen los cupones de la tabla Cupones
             cupones = NCupones.obtenerListaCupones(dsCine1);
 
@@ -299,6 +323,11 @@ namespace CineApp
 
             //Se muestran las imagenes en el FlowLayoutPanel
             MostrarCupones();
+
+            //Cuando se terminen de cargas las imágenes se actualiza de una sola vez
+            ResumeDrawing(this.Handle);
+            this.Refresh();
+            this.Update();
         }
 
         /**
@@ -315,10 +344,14 @@ namespace CineApp
             //Se recoge el número de cupones actuales en la tabla Cupones
             int totalCupones = cupones.Count;
 
-            //Se establece que hayan 4 columnas (para que sea más visible)
-            int columnas = 4;
+            //Se establece el ancho de las películas dependiendo del tamaño del panel que contiene la tabla
+            int anchoPanel = tblCupones.Parent.ClientSize.Width;
+            int anchoPorCupon = 160;
 
-            //Se establece que el número de filas sea el total de cupones entre las columnas redondeando hacia arriba
+            //Se establece que el número de columnas sea el ancho del panel entre el ancho de las películas (cuanto más grande sea el panel más películas habrá en la misma fila)
+            int columnas = Math.Max(1, anchoPanel / anchoPorCupon);
+
+            //Se establece que el número de filas sea el total de las películas entre las columnas existentes, redondeando hacia arriba
             int filas = (int)Math.Ceiling((double)totalCupones / columnas);
 
             //Se establecen el número de columnas y filas recien calculados a las propiedades respectivas en la tabla
@@ -352,8 +385,8 @@ namespace CineApp
                     Panel panel = new Panel
                     {
                         //Color de fondo inicial (antes de que se le de clic)
-                        BackColor = Color.White,
-
+                        BackColor = Color.FromArgb(10, 15, 44),
+                        Dock = DockStyle.Fill,
                         Padding = new Padding(5),
                         Margin = new Padding(5),
                         BorderStyle = BorderStyle.FixedSingle,
@@ -380,7 +413,8 @@ namespace CineApp
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = false,
                         Height = 40,
-                        Font = new Font("Arial", 7, FontStyle.Bold)
+                        Font = new Font("Arial", 9, FontStyle.Bold),
+                        ForeColor = Color.White
                     };
 
                     //Se crea el Label que contendrá la vigencia del cupón
@@ -391,7 +425,8 @@ namespace CineApp
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = false,
                         Height = 30,
-                        Font = new Font("Arial", 6, FontStyle.Regular)
+                        Font = new Font("Arial", 6, FontStyle.Regular),
+                        ForeColor = Color.White
                     };
 
                     //Se crea el Label que contendrá el coste de canje del cupón
@@ -402,7 +437,8 @@ namespace CineApp
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = false,
                         Height = 30,
-                        Font = new Font("Arial", 7, FontStyle.Regular)
+                        Font = new Font("Arial", 8, FontStyle.Bold),
+                        ForeColor = Color.FromArgb(178, 34, 34)
                     };
 
 
@@ -446,7 +482,7 @@ namespace CineApp
         }
 
         /**
-         * Evento que se dispara al darle clic a un panel en la tabla de la cartelera
+         * Evento que se dispara al darle clic a un cupón
          * panelActual - Panel al que se le acaba de dar clic
          */
         private void Imagen_Click(object sender, EventArgs e, Panel panelActual)
@@ -454,14 +490,14 @@ namespace CineApp
             //Si habia un cupón seleccionado se restablece su color
             if (panelSeleccionado != null)
             {
-                panelSeleccionado.BackColor = Color.White;
+                panelSeleccionado.BackColor = Color.FromArgb(10, 15, 44);
             }
 
             //Se establece que el panel seleccionado sea el actual (al que se le acaba de dar clic)
             panelSeleccionado = panelActual;
 
             //Se le cambia el color de fondo para resaltar la selección
-            panelSeleccionado.BackColor = Color.LightBlue;
+            panelSeleccionado.BackColor = Color.SlateGray;
 
             //Se recupera el cupón almacenado en Tag cuando se creó el PictureBox y, si coincide con el cupón seleccionada se sigue
             if (sender is PictureBox imagen && imagen.Tag is Cupon cupon)
@@ -475,6 +511,13 @@ namespace CineApp
          */
         private void btnCanjear_Click(object sender, EventArgs e)
         {
+            //Si no se ha seleccionado ningún cupón se le advierte al usuario
+            if (cuponSeleccionado == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningún cupón para canjear.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             //Si el usuario no se puede permitir canjear el cupón porque éste cuesta más puntos de los que el usuario tiene se le notifica
             if (cuponSeleccionado.CostePuntos > usuario.Puntos)
             {
@@ -625,7 +668,7 @@ namespace CineApp
                 return;
             }
 
-            //Se intentamos convertir a int la calificación dada por el usuario, en caso de no conseguirlo se le advierte
+            //Se intenta convertir a int la calificación dada por el usuario, en caso de no conseguirlo se le advierte
             if (!int.TryParse(txtCalificacionReseña.Text, out int calificacion) || calificacion < 1 || calificacion > 5)
             {
                 MessageBox.Show("La calificación indicada en la reseña no es válida. Debe ser un número entre 1 y 5.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -651,6 +694,28 @@ namespace CineApp
 
             //Se le informa al usuario que la operación ha sido un éxito
             MessageBox.Show("¡Reseña publicada con éxito!", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //Se importa la función SendMessage de la API de Windows
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr wnd, int msg, bool param, int lparam);
+
+        public static int WM_SETREDRAW = 0x000B;
+
+        /**
+         * Método que suspende el Redibujo del control
+         */
+        public static void SuspendDrawing(IntPtr handle)
+        {
+            SendMessage(handle, WM_SETREDRAW, false, 0);
+        }
+
+        /**
+         * Método que habilita el redibujo del control
+         */
+        public static void ResumeDrawing(IntPtr handle)
+        {
+            SendMessage(handle, WM_SETREDRAW, true, 0);
         }
     }
 }

@@ -38,14 +38,10 @@ namespace Negocio
         {
             List<Asiento> asientos = new List<Asiento>();
 
-            Console.WriteLine($"Sala de la sesión: {idSala}");
-
             try
             {
                 AsientosTableAdapter ta = new AsientosTableAdapter();
                 ta.FillBySala(ds.Asientos, idSala);
-
-                Console.WriteLine($"Número de asientos obtenidos de la base de datos: {ds.Asientos.Count}");
 
                 //Por cada registro encontrado se crea un objeto Asiento y se añade a la lista
                 foreach (var row in ds.Asientos)
@@ -54,13 +50,12 @@ namespace Negocio
                         row.Id,
                         row.IdSala,
                         row.NumFila,
-                        row.NumColumna
+                        row.NumColumna,
+                        row.Inhabilitado
                     );
 
                     asientos.Add(asiento);
                 }
-
-                Console.WriteLine($"Número de asientos añadidos a la lista: {asientos.Count}");
             }
             catch (Exception ex)
             {

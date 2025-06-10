@@ -43,7 +43,7 @@ namespace Negocio
                 nuevaFila["IdAsiento"] = asiento.Id;
                 nuevaFila["FechaReserva"] = DateTime.Now;
                 nuevaFila["IdEstadoPago"] = 2; // Pendiente de pago
-                nuevaFila["IdCupon"] = cupon.Id;
+                nuevaFila["IdCupon"] = (cupon?.Id);
 
                 ds.Reservas.Rows.Add(nuevaFila);
 

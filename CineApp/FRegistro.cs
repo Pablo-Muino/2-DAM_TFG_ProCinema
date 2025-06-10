@@ -58,6 +58,7 @@ namespace CineApp
             nuevoUsuario["Nombre"] = nombre;
             nuevoUsuario["Correo"] = correo;
             nuevoUsuario["Contraseña"] = contraseña;
+            nuevoUsuario["Puntos"] = 0;
 
             //Se confirman los cambios y se actualiza la tabla Usuarios
             bsUsuarios.EndEdit();

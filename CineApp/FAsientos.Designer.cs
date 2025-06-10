@@ -66,6 +66,7 @@
             // lblUsuarioLog
             // 
             this.lblUsuarioLog.AutoSize = true;
+            this.lblUsuarioLog.ForeColor = System.Drawing.Color.White;
             this.lblUsuarioLog.Location = new System.Drawing.Point(12, 588);
             this.lblUsuarioLog.Name = "lblUsuarioLog";
             this.lblUsuarioLog.Size = new System.Drawing.Size(119, 16);
@@ -74,7 +75,11 @@
             // 
             // panAsientos
             // 
+            this.panAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panAsientos.AutoScroll = true;
+            this.panAsientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.panAsientos.Controls.Add(this.tblAsientos);
             this.panAsientos.Location = new System.Drawing.Point(12, 220);
             this.panAsientos.Name = "panAsientos";
@@ -83,13 +88,16 @@
             // 
             // tblAsientos
             // 
+            this.tblAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tblAsientos.AutoSize = true;
             this.tblAsientos.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tblAsientos.ColumnCount = 4;
             this.tblAsientos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblAsientos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblAsientos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblAsientos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tblAsientos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tblAsientos.Location = new System.Drawing.Point(7, 3);
             this.tblAsientos.Name = "tblAsientos";
             this.tblAsientos.RowCount = 1;
@@ -100,8 +108,11 @@
             // 
             // gbDatosSesion
             // 
+            this.gbDatosSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.gbDatosSesion.Controls.Add(this.btnIntroducirDatos);
             this.gbDatosSesion.Controls.Add(this.panDatosRequeridos);
+            this.gbDatosSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatosSesion.ForeColor = System.Drawing.Color.White;
             this.gbDatosSesion.Location = new System.Drawing.Point(12, 12);
             this.gbDatosSesion.Name = "gbDatosSesion";
             this.gbDatosSesion.Size = new System.Drawing.Size(508, 202);
@@ -111,12 +122,15 @@
             // 
             // btnIntroducirDatos
             // 
-            this.btnIntroducirDatos.Location = new System.Drawing.Point(375, 163);
+            this.btnIntroducirDatos.BackColor = System.Drawing.Color.Firebrick;
+            this.btnIntroducirDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIntroducirDatos.ForeColor = System.Drawing.Color.White;
+            this.btnIntroducirDatos.Location = new System.Drawing.Point(321, 149);
             this.btnIntroducirDatos.Name = "btnIntroducirDatos";
-            this.btnIntroducirDatos.Size = new System.Drawing.Size(127, 33);
+            this.btnIntroducirDatos.Size = new System.Drawing.Size(181, 47);
             this.btnIntroducirDatos.TabIndex = 31;
             this.btnIntroducirDatos.Text = "Introducir datos";
-            this.btnIntroducirDatos.UseVisualStyleBackColor = true;
+            this.btnIntroducirDatos.UseVisualStyleBackColor = false;
             this.btnIntroducirDatos.Click += new System.EventHandler(this.btnIntroducirDatos_Click);
             // 
             // panDatosRequeridos
@@ -127,9 +141,10 @@
             this.panDatosRequeridos.Controls.Add(this.lblFecha);
             this.panDatosRequeridos.Controls.Add(this.txtTitulo);
             this.panDatosRequeridos.Controls.Add(this.lblTitulo);
+            this.panDatosRequeridos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panDatosRequeridos.Location = new System.Drawing.Point(10, 21);
             this.panDatosRequeridos.Name = "panDatosRequeridos";
-            this.panDatosRequeridos.Size = new System.Drawing.Size(492, 136);
+            this.panDatosRequeridos.Size = new System.Drawing.Size(492, 122);
             this.panDatosRequeridos.TabIndex = 17;
             // 
             // lblHoraInicio
@@ -200,9 +215,13 @@
             // 
             // gbInfoReserva
             // 
+            this.gbInfoReserva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbInfoReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.gbInfoReserva.Controls.Add(this.btnReservar);
             this.gbInfoReserva.Controls.Add(this.panInformacionReserva);
             this.gbInfoReserva.Enabled = false;
+            this.gbInfoReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbInfoReserva.ForeColor = System.Drawing.Color.White;
             this.gbInfoReserva.Location = new System.Drawing.Point(544, 12);
             this.gbInfoReserva.Name = "gbInfoReserva";
             this.gbInfoReserva.Size = new System.Drawing.Size(508, 202);
@@ -212,29 +231,36 @@
             // 
             // btnReservar
             // 
-            this.btnReservar.Location = new System.Drawing.Point(366, 163);
+            this.btnReservar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReservar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnReservar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservar.ForeColor = System.Drawing.Color.White;
+            this.btnReservar.Location = new System.Drawing.Point(343, 149);
             this.btnReservar.Name = "btnReservar";
-            this.btnReservar.Size = new System.Drawing.Size(136, 33);
+            this.btnReservar.Size = new System.Drawing.Size(159, 47);
             this.btnReservar.TabIndex = 31;
             this.btnReservar.Text = "Hacer reserva";
-            this.btnReservar.UseVisualStyleBackColor = true;
+            this.btnReservar.UseVisualStyleBackColor = false;
             this.btnReservar.Click += new System.EventHandler(this.btnReservar_Click);
             // 
             // panInformacionReserva
             // 
+            this.panInformacionReserva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panInformacionReserva.Controls.Add(this.txtCorreo);
             this.panInformacionReserva.Controls.Add(this.txtPrecio);
             this.panInformacionReserva.Controls.Add(this.txtNumAsientos);
             this.panInformacionReserva.Controls.Add(this.lblPrecio);
             this.panInformacionReserva.Controls.Add(this.lblCorreo);
             this.panInformacionReserva.Controls.Add(this.lblNumAsientos);
+            this.panInformacionReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panInformacionReserva.Location = new System.Drawing.Point(10, 21);
             this.panInformacionReserva.Name = "panInformacionReserva";
-            this.panInformacionReserva.Size = new System.Drawing.Size(492, 136);
+            this.panInformacionReserva.Size = new System.Drawing.Size(492, 122);
             this.panInformacionReserva.TabIndex = 17;
             // 
             // txtCorreo
             // 
+            this.txtCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreo.Location = new System.Drawing.Point(12, 87);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(456, 22);
@@ -242,6 +268,7 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrecio.Location = new System.Drawing.Point(245, 31);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(175, 22);
@@ -249,6 +276,7 @@
             // 
             // txtNumAsientos
             // 
+            this.txtNumAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumAsientos.Location = new System.Drawing.Point(12, 31);
             this.txtNumAsientos.Name = "txtNumAsientos";
             this.txtNumAsientos.Size = new System.Drawing.Size(175, 22);
@@ -256,6 +284,7 @@
             // 
             // lblPrecio
             // 
+            this.lblPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.Location = new System.Drawing.Point(242, 10);
@@ -266,6 +295,7 @@
             // 
             // lblCorreo
             // 
+            this.lblCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreo.Location = new System.Drawing.Point(9, 68);
@@ -276,6 +306,7 @@
             // 
             // lblNumAsientos
             // 
+            this.lblNumAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumAsientos.AutoSize = true;
             this.lblNumAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumAsientos.Location = new System.Drawing.Point(9, 10);
@@ -293,12 +324,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1082, 613);
             this.Controls.Add(this.gbInfoReserva);
             this.Controls.Add(this.gbDatosSesion);
             this.Controls.Add(this.panAsientos);
             this.Controls.Add(this.lblUsuarioLog);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "FAsientos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservar asientos";
             this.Load += new System.EventHandler(this.FAsientos_Load);
             this.panAsientos.ResumeLayout(false);

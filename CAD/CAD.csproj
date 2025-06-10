@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Reserva.cs" />
     <Compile Include="Reseña.cs" />
+    <Compile Include="Sala.cs" />
     <Compile Include="Sesion.cs" />
     <Compile Include="SesionAsiento.cs" />
     <Compile Include="Usuario.cs" />

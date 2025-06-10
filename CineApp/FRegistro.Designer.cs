@@ -47,6 +47,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
+            this.lblUsuario.ForeColor = System.Drawing.Color.White;
             this.lblUsuario.Location = new System.Drawing.Point(100, 48);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(125, 16);
@@ -56,6 +57,7 @@
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
+            this.lblCorreo.ForeColor = System.Drawing.Color.White;
             this.lblCorreo.Location = new System.Drawing.Point(105, 85);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(120, 16);
@@ -65,6 +67,7 @@
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
+            this.lblContraseña.ForeColor = System.Drawing.Color.White;
             this.lblContraseña.Location = new System.Drawing.Point(146, 128);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(79, 16);
@@ -74,6 +77,7 @@
             // lblConfContraseña
             // 
             this.lblConfContraseña.AutoSize = true;
+            this.lblConfContraseña.ForeColor = System.Drawing.Color.White;
             this.lblConfContraseña.Location = new System.Drawing.Point(88, 172);
             this.lblConfContraseña.Name = "lblConfContraseña";
             this.lblConfContraseña.Size = new System.Drawing.Size(137, 16);
@@ -112,12 +116,15 @@
             // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(216, 231);
+            this.btnRegistrarse.BackColor = System.Drawing.Color.Firebrick;
+            this.btnRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarse.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarse.Location = new System.Drawing.Point(196, 232);
             this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(95, 29);
+            this.btnRegistrarse.Size = new System.Drawing.Size(140, 39);
             this.btnRegistrarse.TabIndex = 8;
             this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrarse.UseVisualStyleBackColor = false;
             this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // dsCine1
@@ -134,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(15)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(541, 314);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.txtConfContraseña);
@@ -145,6 +153,7 @@
             this.Controls.Add(this.lblCorreo);
             this.Controls.Add(this.lblUsuario);
             this.Name = "FRegistro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRegistro";
             ((System.ComponentModel.ISupportInitialize)(this.dsCine1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsUsuarios)).EndInit();

@@ -5,12 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CAD;
 using CAD.DSCineTableAdapters;
 using Negocio;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Net;
+using System.Net.Mail;
 
 namespace CineApp
 {
@@ -24,9 +29,9 @@ namespace CineApp
          * asiento - Asiento de la sala del que se comprobará después su estado
          * asientos - Lista de asientos de una sala
          * sesionAsiento - El asiento de la sala ya asociado a la sesión que ha elegido el usuario
-         * panelSeleccionado - Será el panel que habrá seleccionado el usuario (representando un asiento en la sala)
          * estadoAAsiento - Estado del asiento en esa sesión
          * asientosSeleccionados - Lista de asientos seleccionados en la sala
+         * inhabilitado - Establece si el asiento seleccionado está habilitado o no
          */
         private Usuario usuario;
         private Pelicula pelicula;
@@ -34,10 +39,10 @@ namespace CineApp
         private Asiento asiento;
         private List<Asiento> asientos;
         private SesionAsiento sesionAsiento;
-        //private Panel panelSeleccionado = null;
         private EstadoAsiento estadoAsiento;
         private List<Asiento> asientosSeleccionados = new List<Asiento>();
         private Cupon cupon;
+        private bool inhabilitado;
 
         /**
          * Constructor de la clase
@@ -64,6 +69,9 @@ namespace CineApp
          */
         private void FAsientos_Load(object sender, EventArgs e)
         {
+            //Al iniciar el formulario se mostrará el nombre del usuario loggeado
+            lblUsuarioLog.Text = "Usuario loggeado: " + usuario.Nombre;
+
             //Se rellena el txtTitulo con el título de la película seleccionada anteriormente
             txtTitulo.Text = pelicula.Titulo;
 
@@ -98,6 +106,9 @@ namespace CineApp
          */
         private void btnIntroducirDatos_Click(object sender, EventArgs e)
         {
+            //Para evitar el parpadeo que se genera cuando el sistema carga cada una de las imágenes de los asientos se establece que se carguen internamente
+            SuspendDrawing(this.Handle);
+
             //Se habilita el groupBox con los datos finales de la reserva
             gbInfoReserva.Enabled = true;
 
@@ -110,6 +121,11 @@ namespace CineApp
             //Se limpian los campos txtNumAsientos y txtPrecio por si acaso hubieran ya datos en ellos
             txtNumAsientos.Clear();
             txtPrecio.Clear();
+
+            //Cuando se terminen de cargas las imágenes se actualiza de una sola vez
+            ResumeDrawing(this.Handle);
+            this.Refresh();
+            this.Update();
         }
 
         /**
@@ -128,6 +144,7 @@ namespace CineApp
             }
 
             //Se obtienen los asientos de la sesión mediante el Id de la sala donde se hará la misma
+            Console.WriteLine($"Sesión: {sesion.Id}");
             asientos = NAsientos.obtenerListaAsientosSala(dsCine1, sesion.IdSala);
 
             //Se muestran los asientos recogidos en formato de tabla
@@ -184,19 +201,25 @@ namespace CineApp
 
                     //Se obtiene el asiento actual de la sesión mediante el Id de la sesión y el Id del asiento
                     sesionAsiento = NSesionAsientos.obtenerSesionAsientosSesionAsiento(dsCine1, sesion.Id, asiento.Id);
-                    
+
+                    if (sesionAsiento == null)
+                    {
+                        Console.WriteLine($"⚠️ No se encontró sesionAsiento para Sesion ID: {sesion.Id}, Asiento ID: {asiento.Id}");
+                    }
+
                     //Se obtiene el estado del asiento actual de la sesión mediante el Id de estado del asiento en la sesión
                     estadoAsiento = (sesionAsiento != null) ? NEstadoAsientos.obtenerEstadosAsientoId(dsCine1, sesionAsiento.IdEstado) : null;
 
-                    //Se declara el color de fondo del panel dependiendo del estado del asiento en la sesión
-                    Color colorFondo = estadoAsiento != null ? ObtenerColorFondo(estadoAsiento) : Color.Gray;
+                    //Se declara el color de fondo del panel dependiendo del estado del asiento en la sesión y de si está habilitado o no
+                    inhabilitado = asiento.Inhabilitado;
+                    Color colorFondo = estadoAsiento != null ? ObtenerColorFondo(estadoAsiento, inhabilitado) : Color.Gray;
 
                     //Se crea el panel que contendrá la imagen del asiento
                     Panel panel = new Panel
                     {
                         //Color de fondo inicial (antes de que se le de clic)
                         BackColor = colorFondo,
-
+                        Dock = DockStyle.Fill,
                         Padding = new Padding(0),
                         Margin = new Padding(2),
                         BorderStyle = BorderStyle.FixedSingle,
@@ -216,12 +239,12 @@ namespace CineApp
                     try
                     {
                         //Se intenta adjuntar la imágen del asiento al PictureBox
-                        imgAsiento.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "asiento.png"));
+                        imgAsiento.Image = System.Drawing.Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "asiento.png"));
                     }
                     catch
                     {
                         //Si falla esa imagen se usa una imagen predeterminada
-                        imgAsiento.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "predeterminada.png"));
+                        imgAsiento.Image = System.Drawing.Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "predeterminada.png"));
                     }
 
                     //Se asocia el evento Asiento_Click para que al hacer clic en el asiento, éste se seleccione
@@ -235,6 +258,7 @@ namespace CineApp
                     indice++;
                 }
             }
+           
         }
 
         /**
@@ -250,18 +274,18 @@ namespace CineApp
                 sesionAsiento = NSesionAsientos.obtenerSesionAsientosSesionAsiento(dsCine1, sesion.Id, asientoSeleccionado.Id);
                 estadoAsiento = (sesionAsiento != null) ? NEstadoAsientos.obtenerEstadosAsientoId(dsCine1, sesionAsiento.IdEstado) : null;
 
-                //Si el asiento está ocupado o reservado se le notifica al usuario
-                if (estadoAsiento != null && (estadoAsiento.Estado.Equals("Ocupado") || estadoAsiento.Estado.Equals("Reservado")))
+                //Si el asiento está ocupado, reservado o inhabilitado se le notifica al usuario
+                if (estadoAsiento != null && (estadoAsiento.Estado.Equals("Ocupado") || estadoAsiento.Estado.Equals("Reservado")) || asientoSeleccionado.Inhabilitado == true)
                 {
                     MessageBox.Show("Este asiento no está disponible para su selección.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                //Si el asiento que el usuario quiere seleccionar ya estaba seleccionado, se deselecciona y se cambia su color dependiendo de su estado
+                //Si el asiento que el usuario quiere seleccionar ya estaba seleccionado, se deselecciona y se cambia su color dependiendo de su estado y de si está habilitado o no
                 if (asientosSeleccionados.Contains(asientoSeleccionado))
                 {
                     asientosSeleccionados.Remove(asientoSeleccionado);
-                    panelActual.BackColor = ObtenerColorFondo(estadoAsiento);
+                    panelActual.BackColor = ObtenerColorFondo(estadoAsiento, inhabilitado);
                 }
                 else
                 {
@@ -289,20 +313,26 @@ namespace CineApp
         }
 
         /**
-         * Método que obtiene el color de fondo del panel de un asiento dependiendo del estadow del mismo
+         * Método que obtiene el color de fondo del panel de un asiento dependiendo del estado del mismo
          */
-        private Color ObtenerColorFondo(EstadoAsiento estadoAsiento)
+        private Color ObtenerColorFondo(EstadoAsiento estadoAsiento, bool inhabilitado)
         {
-            switch (estadoAsiento.Estado)
+            if (inhabilitado)
             {
-                case "Disponible":
-                    return Color.Green;
-                case "Ocupado":
-                    return Color.Red;
-                case "Reservado":
-                    return Color.Orange;
-                default:
-                    return Color.Gray;
+                return Color.Black;
+            } else
+            {
+                switch (estadoAsiento.Estado)
+                {
+                    case "Disponible":
+                        return Color.Green;
+                    case "Ocupado":
+                        return Color.Red;
+                    case "Reservado":
+                        return Color.Orange;
+                    default:
+                        return Color.Gray;
+                }
             }
         }
 
@@ -329,7 +359,7 @@ namespace CineApp
             if (result == DialogResult.Yes)
             {
                 //Si el usuario ha canjeado un cupón que permita que 5 asientos sean gratis y reserva menos se le avisará para que aproveche este cupón a su máximo
-                if (cupon.Descripcion.Contains("5") && asientosSeleccionados.Count < 5)
+                if (cupon != null && cupon.Descripcion.Contains("5") && asientosSeleccionados.Count < 5)
                 {
                     MessageBox.Show("Se están reservando menos asientos de los que el cupón puede llegar a permitir. Por favor, reserve tantos asientos como le ofrece el cupón que ha canjeado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -343,6 +373,22 @@ namespace CineApp
                         //Por cada asiento seleccionado se crea una nueva reserva y se actualiza el estado de los mismos
                         NReservas.agregarReserva(dsCine1, usuario, sesion, asiento, cupon);
                         ActualizarEstadoAsientos(asiento, "Reservado");
+
+                        //Se intenta mandar un correo con los datos de la reserva al usuario, en caso contrario se le avisa
+                        try
+                        {
+                            //Primero se genera el pdf con los datos de la reserva
+                            string pdf = GenerarPDFReserva(usuario, asientosSeleccionados, cupon, NSalas.obtenerSalaId(dsCine1, sesion.IdSala));
+
+                            //Y una vez creado el pdf se le manda al usuario
+                            EnviarCorreoConPDF(usuario.Correo, pdf);
+
+                            MessageBox.Show("Se ha enviado un correo con los detalles de tu reserva.", "Correo Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Reserva realizada, pero no se pudo enviar el correo: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -369,6 +415,8 @@ namespace CineApp
 
         /**
          * Método que actualiza el estado de un asiento
+         * asiento - Asiento que ha seleccionado el usuario para reservar
+         * nuevoEstado - Estado al que pasará estar este asiento
          */
         private void ActualizarEstadoAsientos(Asiento asiento, string nuevoEstado)
         {
@@ -419,6 +467,93 @@ namespace CineApp
                 //En caso de no encontrar el asiento de la sesión se le advierte al usuarios
                 MessageBox.Show("Error al actualizar el estado del asiento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /**
+         * Método que genera un rchivo pdf con los datos de la reserva realizada por el usuario
+         * usuario - Usuario el cual ha realizado la reserva
+         * asientos - Los asientos que el usuario ha seleccionado para reservar
+         * cupon - Cupón que el usuario ha canjeado para su proxima reserva (null si no ha seleccionado ninguno)
+         * sala - Sala donde se encuentran los asientos reservados por el usuario
+         */
+        private string GenerarPDFReserva(Usuario usuario, List<Asiento> asientos, Cupon cupon, Sala sala)
+        {
+            //Se crea la ruta del archivo pdf
+            string nombreArchivo = Path.Combine(Path.GetTempPath(), $"reserva_{Guid.NewGuid()}.pdf");
+
+            //Se crea el documento y se abre
+            Document doc = new Document();
+            PdfWriter.GetInstance(doc, new FileStream(nombreArchivo, FileMode.Create));
+            doc.Open();
+
+            //Se le añaden los datos de la reserva
+            doc.Add(new Paragraph("Confirmación de Reserva de Cine"));
+            doc.Add(new Paragraph($"\nFecha de Reserva: {DateTime.Now}"));
+            doc.Add(new Paragraph($"Correo del Usuario: {usuario.Correo}"));
+            doc.Add(new Paragraph($"Cupón Canjeado: {(cupon != null ? cupon.Descripcion : "Ninguno")}"));
+            doc.Add(new Paragraph($"Número de Entradas: {asientos.Count}"));
+            doc.Add(new Paragraph($"\nSala: {sala.Nombre}"));
+            doc.Add(new Paragraph("Detalles de Asientos:"));
+
+            foreach (var asiento in asientos)
+            {
+                doc.Add(new Paragraph($"- Fila: {asiento.NumFila}, Número: {asiento.NumColumna}"));
+            }
+
+            //Se cierra el documento una vez acabados de introducir los datos y se devuelve
+            doc.Close();
+            return nombreArchivo;
+        }
+
+        /**
+         * Método que manda el pdf de la reserva al usuario
+         * destinatario - Correo del usuario donde a donde se mandará el pdf
+         * rutaPDF - Ruta del pdf a mandar
+         */
+        private void EnviarCorreoConPDF(string destinatario, string rutaPDF)
+        {
+            //Se crea el mensaje de correo y se especifican los detalles del mismo (procedencia, destinatario, asunto y cuerpo)
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("procinemareservas@gmail.com");
+            mail.To.Add(destinatario);
+            mail.Subject = "Confirmación de tu reserva de cine";
+            mail.Body = "Adjunto encontrarás el comprobante en PDF de tu reserva.";
+
+            //Se le adjunta el pdf creado anteriormente
+            Attachment pdfAdjunto = new Attachment(rutaPDF);
+            mail.Attachments.Add(pdfAdjunto);
+
+            //Se crea un cliente SMTP apuntando al servidor de gmail usando el puerto 587 (el puerto estandar)
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+
+            //Se establecen las credenciales de autenticación para iniciar sesión en la cuenta de gmail proveedor del pdf
+            smtp.Credentials = new NetworkCredential("procinemareservas@gmail.com", "qprv udtt rdhq zbkz");
+            smtp.EnableSsl = true;
+
+            //Por último se manda el correo
+            smtp.Send(mail);
+        }
+
+        //Se importa la función SendMessage de la API de Windows
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr wnd, int msg, bool param, int lparam);
+
+        public static int WM_SETREDRAW = 0x000B;
+
+        /**
+         * Método que suspende el Redibujo del control
+         */
+        public static void SuspendDrawing(IntPtr handle)
+        {
+            SendMessage(handle, WM_SETREDRAW, false, 0);
+        }
+
+        /**
+         * Método que habilita el redibujo del control
+         */
+        public static void ResumeDrawing(IntPtr handle)
+        {
+            SendMessage(handle, WM_SETREDRAW, true, 0);
         }
     }
 }

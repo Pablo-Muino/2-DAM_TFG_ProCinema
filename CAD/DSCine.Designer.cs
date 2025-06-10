@@ -1386,6 +1386,8 @@ namespace CAD {
             
             private global::System.Data.DataColumn columnNumColumna;
             
+            private global::System.Data.DataColumn columnInhabilitado;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public AsientosDataTable() {
@@ -1453,6 +1455,14 @@ namespace CAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InhabilitadoColumn {
+                get {
+                    return this.columnInhabilitado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1488,13 +1498,14 @@ namespace CAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AsientosRow AddAsientosRow(SalasRow parentSalasRowByFK_Asientos_Salas, int NumFila, int NumColumna) {
+            public AsientosRow AddAsientosRow(SalasRow parentSalasRowByFK_Asientos_Salas, int NumFila, int NumColumna, bool Inhabilitado) {
                 AsientosRow rowAsientosRow = ((AsientosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         NumFila,
-                        NumColumna};
+                        NumColumna,
+                        Inhabilitado};
                 if ((parentSalasRowByFK_Asientos_Salas != null)) {
                     columnValuesArray[1] = parentSalasRowByFK_Asientos_Salas[0];
                 }
@@ -1531,6 +1542,7 @@ namespace CAD {
                 this.columnIdSala = base.Columns["IdSala"];
                 this.columnNumFila = base.Columns["NumFila"];
                 this.columnNumColumna = base.Columns["NumColumna"];
+                this.columnInhabilitado = base.Columns["Inhabilitado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1544,6 +1556,8 @@ namespace CAD {
                 base.Columns.Add(this.columnNumFila);
                 this.columnNumColumna = new global::System.Data.DataColumn("NumColumna", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumColumna);
+                this.columnInhabilitado = new global::System.Data.DataColumn("Inhabilitado", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInhabilitado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -10544,6 +10558,22 @@ namespace CAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Inhabilitado {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAsientos.InhabilitadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Inhabilitado\' de la tabla \'Asientos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAsientos.InhabilitadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SalasRow SalasRow {
                 get {
                     return ((SalasRow)(this.GetParentRow(this.Table.ParentRelations["FK_Asientos_Salas"])));
@@ -10551,6 +10581,18 @@ namespace CAD {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Asientos_Salas"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsInhabilitadoNull() {
+                return this.IsNull(this.tableAsientos.InhabilitadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetInhabilitadoNull() {
+                this[this.tableAsientos.InhabilitadoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14015,38 +14057,43 @@ namespace CAD.DSCineTableAdapters {
             tableMapping.ColumnMappings.Add("IdSala", "IdSala");
             tableMapping.ColumnMappings.Add("NumFila", "NumFila");
             tableMapping.ColumnMappings.Add("NumColumna", "NumColumna");
+            tableMapping.ColumnMappings.Add("Inhabilitado", "Inhabilitado");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Asientos] WHERE (([Id] = @Original_Id) AND ([IdSala] = @Original_IdS" +
-                "ala) AND ([NumFila] = @Original_NumFila) AND ([NumColumna] = @Original_NumColumn" +
-                "a))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Asientos] WHERE (([Id] = @Original_Id) AND ([IdSala] = @Original_IdSala) AND ([NumFila] = @Original_NumFila) AND ([NumColumna] = @Original_NumColumna) AND ((@IsNull_Inhabilitado = 1 AND [Inhabilitado] IS NULL) OR ([Inhabilitado] = @Original_Inhabilitado)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdSala", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdSala", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumFila", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumFila", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumColumna", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumColumna", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Inhabilitado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inhabilitado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Inhabilitado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inhabilitado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Asientos] ([IdSala], [NumFila], [NumColumna]) VALUES (@IdSala, @NumF" +
-                "ila, @NumColumna);\r\nSELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (" +
-                "Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Asientos] ([IdSala], [NumFila], [NumColumna], [Inhabilitado]) VALUES" +
+                " (@IdSala, @NumFila, @NumColumna, @Inhabilitado);\r\nSELECT Id, IdSala, NumFila, N" +
+                "umColumna, Inhabilitado FROM Asientos WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdSala", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdSala", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumFila", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumFila", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumColumna", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumColumna", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inhabilitado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inhabilitado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Asientos] SET [IdSala] = @IdSala, [NumFila] = @NumFila, [NumColumna] = @NumColumna WHERE (([Id] = @Original_Id) AND ([IdSala] = @Original_IdSala) AND ([NumFila] = @Original_NumFila) AND ([NumColumna] = @Original_NumColumna));
-SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Asientos] SET [IdSala] = @IdSala, [NumFila] = @NumFila, [NumColumna] = @NumColumna, [Inhabilitado] = @Inhabilitado WHERE (([Id] = @Original_Id) AND ([IdSala] = @Original_IdSala) AND ([NumFila] = @Original_NumFila) AND ([NumColumna] = @Original_NumColumna) AND ((@IsNull_Inhabilitado = 1 AND [Inhabilitado] IS NULL) OR ([Inhabilitado] = @Original_Inhabilitado)));
+SELECT Id, IdSala, NumFila, NumColumna, Inhabilitado FROM Asientos WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdSala", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdSala", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumFila", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumFila", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumColumna", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumColumna", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inhabilitado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inhabilitado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdSala", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdSala", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumFila", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumFila", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumColumna", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumColumna", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Inhabilitado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inhabilitado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Inhabilitado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Inhabilitado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -14063,16 +14110,18 @@ SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, IdSala, NumFila, NumColumna FROM Asientos";
+            this._commandCollection[0].CommandText = "SELECT Id, IdSala, NumFila, NumColumna, Inhabilitado FROM Asientos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
+            this._commandCollection[1].CommandText = "SELECT Id, IdSala, NumFila, NumColumna, Inhabilitado FROM Asientos WHERE (Id = @I" +
+                "d)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE IdSala = @IdSala";
+            this._commandCollection[2].CommandText = "SELECT Id, IdSala, NumFila, NumColumna, Inhabilitado FROM Asientos WHERE (IdSala " +
+                "= @IdSala)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdSala", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdSala", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -14162,11 +14211,19 @@ SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, int Original_IdSala, int Original_NumFila, int Original_NumColumna) {
+        public virtual int Delete(int Original_Id, int Original_IdSala, int Original_NumFila, int Original_NumColumna, global::System.Nullable<bool> Original_Inhabilitado) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IdSala));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_NumFila));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_NumColumna));
+            if ((Original_Inhabilitado.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_Inhabilitado.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14187,10 +14244,16 @@ SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int IdSala, int NumFila, int NumColumna) {
+        public virtual int Insert(int IdSala, int NumFila, int NumColumna, global::System.Nullable<bool> Inhabilitado) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdSala));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(NumFila));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(NumColumna));
+            if ((Inhabilitado.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Inhabilitado.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14211,15 +14274,29 @@ SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdSala, int NumFila, int NumColumna, int Original_Id, int Original_IdSala, int Original_NumFila, int Original_NumColumna, int Id) {
+        public virtual int Update(int IdSala, int NumFila, int NumColumna, global::System.Nullable<bool> Inhabilitado, int Original_Id, int Original_IdSala, int Original_NumFila, int Original_NumColumna, global::System.Nullable<bool> Original_Inhabilitado, int Id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdSala));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(NumFila));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(NumColumna));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_IdSala));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_NumFila));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_NumColumna));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Id));
+            if ((Inhabilitado.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Inhabilitado.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_IdSala));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_NumFila));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_NumColumna));
+            if ((Original_Inhabilitado.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Original_Inhabilitado.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14240,8 +14317,8 @@ SELECT Id, IdSala, NumFila, NumColumna FROM Asientos WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdSala, int NumFila, int NumColumna, int Original_Id, int Original_IdSala, int Original_NumFila, int Original_NumColumna) {
-            return this.Update(IdSala, NumFila, NumColumna, Original_Id, Original_IdSala, Original_NumFila, Original_NumColumna, Original_Id);
+        public virtual int Update(int IdSala, int NumFila, int NumColumna, global::System.Nullable<bool> Inhabilitado, int Original_Id, int Original_IdSala, int Original_NumFila, int Original_NumColumna, global::System.Nullable<bool> Original_Inhabilitado) {
+            return this.Update(IdSala, NumFila, NumColumna, Inhabilitado, Original_Id, Original_IdSala, Original_NumFila, Original_NumColumna, Original_Inhabilitado, Original_Id);
         }
     }
     
@@ -17661,11 +17738,16 @@ SELECT Id, IdUsuario, IdAsiento, FechaReserva, IdEstadoPago, IdSesion, IdCupon F
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, Nombre, Capacidad FROM dbo.Salas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT Id, Nombre, Capacidad FROM dbo.Salas WHERE Id = @Id";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17690,6 +17772,20 @@ SELECT Id, IdUsuario, IdAsiento, FechaReserva, IdEstadoPago, IdSesion, IdCupon F
             DSCine.SalasDataTable dataTable = new DSCine.SalasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillById(DSCine.SalasDataTable dataTable, int Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
