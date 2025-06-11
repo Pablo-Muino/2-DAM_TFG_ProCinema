@@ -234,7 +234,7 @@ namespace CineApp
                     catch
                     {
                         //Si falla la imagen se usa una imagen predeterminada
-                        portada.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "predeterminada.png"));
+                        portada.Image = Properties.Resources.predeterminada;
                     }
 
                     //Se asocia el evento Portada_Click para que al hacer clic en la portada se seleccione la película
@@ -462,7 +462,7 @@ namespace CineApp
                     catch
                     {
                         //Si falla la imagen se usa una imagen predeterminada
-                        imagen.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "predeterminada.png"));
+                        imagen.Image = Properties.Resources.predeterminada;
                     }
 
                     //Se asocia el evento Portada_Click para que al hacer clic en la portada se seleccione la película
@@ -591,22 +591,22 @@ namespace CineApp
                 switch(reseña.Calificacion)
                 {
                     case 1:
-                        estrellas = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "1_estrella.png"));
+                        estrellas = Properties.Resources._1_estrella;
                         break;
                     case 2:
-                        estrellas = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "2_estrellas.png"));
+                        estrellas = Properties.Resources._2_estrellas;
                         break;
                     case 3:
-                        estrellas = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "3_estrellas.png"));
+                        estrellas = Properties.Resources._3_estrellas;
                         break;
                     case 4:
-                        estrellas = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "4_estrellas.png"));
+                        estrellas = Properties.Resources._4_estrellas;
                         break;
                     case 5:
-                        estrellas = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "5_estrellas.png"));
+                        estrellas = Properties.Resources._5_estrellas;
                         break;
                     default:
-                        estrellas = Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "predeterminada.png"));
+                        estrellas = Properties.Resources.predeterminada;
                         break;
                 }
 

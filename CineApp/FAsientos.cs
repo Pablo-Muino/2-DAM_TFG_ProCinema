@@ -239,12 +239,12 @@ namespace CineApp
                     try
                     {
                         //Se intenta adjuntar la imágen del asiento al PictureBox
-                        imgAsiento.Image = System.Drawing.Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "asiento.png"));
+                        imgAsiento.Image = Properties.Resources.asiento;
                     }
                     catch
                     {
                         //Si falla esa imagen se usa una imagen predeterminada
-                        imgAsiento.Image = System.Drawing.Image.FromFile(Path.Combine(Application.StartupPath, "Imagenes", "predeterminada.png"));
+                        imgAsiento.Image = Properties.Resources.predeterminada;
                     }
 
                     //Se asocia el evento Asiento_Click para que al hacer clic en el asiento, éste se seleccione
