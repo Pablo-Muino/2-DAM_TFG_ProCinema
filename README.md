@@ -12,3 +12,6 @@ Como por parte de los empleados/gerente:
   - Gestionar las sesiones y los horarios
 
 Aplicando los conocimientos adquiridos en la empresa en la que se están haciendo las prácticas utilizando el IDE Visual Studio con Formularios de Windows en C#.
+
+## Enlaces útiles
+- [Descarga de la aplicación](https://drive.google.com/drive/folders/1BQ3z1Y3DzIwkdNO8FV5v01drkMmZpllz?usp=drive_link)
