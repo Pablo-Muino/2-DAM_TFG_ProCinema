@@ -1,17 +1,25 @@
 # 2-DAM_TFG_ProCinema
-Proyecto final de grado superior de Desarrollo de Aplicaciones Multiplataforma (DAM) el cual consiste en crear una aplicación que simule la gestión de un cine.
+ProCinema es el proyecto final del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM). 
+Se trata de una aplicación de escritorio que simula la gestión integral de un cine, desarrollada con C# utilizando Windows Forms en el entorno de desarrollo Visual Studio.
 
-Tanto por parte del cliente:
-  - Ver la cartelera
-  - Reservar asientos
-  - Dejar reseñas
+## Funcionalidades
+Para clientes:
+  - Visualización de la cartelera
+  - Reserva de asientos
+  - Publicación de reseñas
 
-Como por parte de los empleados/gerente:
-  - Administrar los empleados
-  - Gestionar los usuarios que entran a la aplicación
-  - Gestionar las sesiones y los horarios
+Para empleados y gerencia:
+  - Administración del personal
+  - Gestión de usuarios registrados
+  - Configuración de sesiones y horarios de películas
 
-Aplicando los conocimientos adquiridos en la empresa en la que se están haciendo las prácticas utilizando el IDE Visual Studio con Formularios de Windows en C#.
+Este proyecto aplica conocimientos adquiridos durante el ciclo formativo y en el entorno laboral de prácticas.
 
-## Enlaces útiles
+## Tecnologías utilizadas
+  - Lenguaje: C#
+  - Entorno de desarollo: Visual Studio
+  - Framework: Windows Forms
+  - Base de datos: SQL Server Management Studio 20
+
+## Enlace de descarga
 - [Descarga de la aplicación](https://drive.google.com/drive/folders/1BQ3z1Y3DzIwkdNO8FV5v01drkMmZpllz?usp=drive_link)
